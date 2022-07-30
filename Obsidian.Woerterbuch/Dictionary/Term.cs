@@ -1,4 +1,4 @@
-﻿namespace Obsidian.Woerterbuch
+﻿namespace Obsidian.Woerterbuch.Dictionary
 {
     using System.Collections.Generic;
 

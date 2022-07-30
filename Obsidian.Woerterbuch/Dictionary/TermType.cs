@@ -1,4 +1,4 @@
-﻿namespace Obsidian.Woerterbuch
+﻿namespace Obsidian.Woerterbuch.Dictionary
 {
     /// <summary>
     /// An enum of the different word classes.

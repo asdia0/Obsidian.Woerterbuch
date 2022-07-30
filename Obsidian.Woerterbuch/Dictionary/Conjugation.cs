@@ -1,4 +1,4 @@
-﻿namespace Obsidian.Woerterbuch
+﻿namespace Obsidian.Woerterbuch.Dictionary
 {
     /// <summary>
     /// Represents the conjugation of a verb in a specified tense.
