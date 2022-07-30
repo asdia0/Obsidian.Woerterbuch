@@ -28,11 +28,11 @@
         /// <summary>
         /// Futur 1.
         /// </summary>
-        Futur1,
+        Future1,
 
         /// <summary>
         /// Futur 2.
         /// </summary>
-        Futur2
+        Future2
     }
 }
