@@ -4,19 +4,10 @@
      /// </summary>
     public enum Gender
     {
-        /// <summary>
-        /// Masculine (der)
-        /// </summary>
-        Maskulinum,
+        Masculine,
 
-        /// <summary>
-        /// Feminine (die)
-        /// </summary>
-        Femininum,
+        Feminine,
 
-        /// <summary>
-        /// Neutral (das)
-        /// </summary>
-        Neutrum
+        Neutral
     }
 }
