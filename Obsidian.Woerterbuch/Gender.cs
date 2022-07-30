@@ -2,5 +2,8 @@
 {
     public enum Gender
     {
+        Maskulinum,
+        Femininum,
+        Neutrum
     }
 }
