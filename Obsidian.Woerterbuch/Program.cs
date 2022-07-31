@@ -88,32 +88,7 @@
                     case "v":
                         if (TermExists(term, type))
                         {
-                            Term termV = Dictionary.Where(i => i.Name == term && i.Type == type).First();
-
-                            string text = string.Empty;
-                            text += $"Term: {termV.Name}\n";
-                            text += $"Type: {termV.Type}\n";
-                            text += $"Definition{(termV.Definitions.Count > 1 ? "s" : string.Empty)}:{FormatLists(termV.Definitions)}\n";
-                            text += $"Synonym{(termV.Synonyms.Count > 1 ? "s" : string.Empty)}:{FormatLists(termV.Synonyms)}\n";
-
-                            if (type == TermType.Noun)
-                            {
-                                text += $"Gender: {termV.Gender}\n";
-                                text += $"Plural: {termV.Plural}\n";
-                            }
-
-                            if (type == TermType.Verb)
-                            {
-                                text += $"Conjugations:\n{FormatConjugations(termV.Conjugations)}";
-                            }
-
-                            if (type == TermType.Verb || type == TermType.Preposition)
-                            {
-                                text += $"Is Akkusativ: {termV.IsAkkusativ}\n";
-                                text += $"Is Dativ: {termV.IsDativ}\n";
-                            }
-
-                            Console.WriteLine(text);
+                            TermEditor(term, type);
                         }
                         else
                         {
@@ -199,6 +174,36 @@
         public static bool TermExists(string term, TermType type)
         {
             return Dictionary.Where(i => i.Name == term && i.Type == type).Any();
+        }
+
+        public static void TermEditor(string term, TermType type)
+        {
+            Term termV = Dictionary.Where(i => i.Name == term && i.Type == type).First();
+
+            string text = string.Empty;
+            text += $"Term: {termV.Name}\n";
+            text += $"Type: {termV.Type}\n";
+            text += $"Definition{(termV.Definitions.Count > 1 ? "s" : string.Empty)}:{FormatLists(termV.Definitions)}\n";
+            text += $"Synonym{(termV.Synonyms.Count > 1 ? "s" : string.Empty)}:{FormatLists(termV.Synonyms)}\n";
+
+            if (type == TermType.Noun)
+            {
+                text += $"Gender: {termV.Gender}\n";
+                text += $"Plural: {termV.Plural}\n";
+            }
+
+            if (type == TermType.Verb)
+            {
+                text += $"Conjugations:\n{FormatConjugations(termV.Conjugations)}";
+            }
+
+            if (type == TermType.Verb || type == TermType.Preposition)
+            {
+                text += $"Is Akkusativ: {termV.IsAkkusativ}\n";
+                text += $"Is Dativ: {termV.IsDativ}\n";
+            }
+
+            Console.WriteLine(text);
         }
     }
 }
