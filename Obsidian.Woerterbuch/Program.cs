@@ -11,6 +11,8 @@
     {
         private static string Path = "dict.json";
 
+        private static string Separator = ",,";
+
         private static List<Term> Dictionary;
 
         readonly static Dictionary<string, TermType> StringToType = new()
@@ -116,7 +118,7 @@
                 Console.WriteLine("Options:\nv <term> <type> - View term\na <term> <type> - Add term\ne <term> <type> - Edit term\nd <term> <type> - Delete term\n");
                 Console.WriteLine("Types:\n  * n - noun\n  * v - verb\n  * adv - adverb\n  * adj- adjective\n  * pro - pronoun\n  * preposition\n  * c - conjunction\n  * d - determiner\n  * e - exclamation\n");
 
-                List<string> inputs = Console.ReadLine().Split(" ").ToList();
+                List<string> inputs = Console.ReadLine().Split(Separator).ToList();
                 string option = inputs[0].ToLower();
                 string term = (inputs.Count > 1 ? inputs[1] : string.Empty);
                 string typeS = (inputs.Count > 2 ? inputs[2] : string.Empty);
@@ -296,7 +298,7 @@
             Console.WriteLine("Tense:\n  * pre - present (Präsens)\n  * per - perfect (Perfekt)\n  * sp - simple past (Präteritum)\n  * pp - past perfect (Plusquamperfekt)\n  * f1 - future 1 (Futur 1)\n  * f2 - future 2 (Futur 2)\n");
             Console.WriteLine("Booleans:\n  * 1 - true\n  * anything else - false\n");
 
-            List<string> arguments = Console.ReadLine().Split(" ").ToList();
+            List<string> arguments = Console.ReadLine().Split(Separator).ToList();
 
             if (!ValidOptionsEdit.Contains(arguments[0]) 
                 || (type != TermType.Noun && ValidOptionsN.Contains(arguments[0]))
