@@ -72,7 +72,6 @@
                     continue;
                 }
 
-                TermType? type = null;
                 if (!StringToType.ContainsKey(typeS))
                 {
                     Console.WriteLine($"\"{typeS}\" is not a valid word type.");
@@ -80,15 +79,14 @@
                     continue;
                 }
                 
-                type = StringToType[typeS];
+                TermType type = StringToType[typeS];
 
                 Console.Clear();
 
                 switch (option)
                 {
                     case "v":
-                        // Term exists
-                        if (Dictionary.Where(i => i.Name == term && i.Type == type).Any())
+                        if (TermExists(term, type))
                         {
                             Term termV = Dictionary.Where(i => i.Name == term && i.Type == type).First();
 
@@ -117,22 +115,19 @@
 
                             Console.WriteLine(text);
                         }
-                        // Term does not exist
                         else
                         {
                             Console.WriteLine($"\"{term} ({typeS}.)\" does not exist.");
                         }
                         break;
                     case "a":
-                        // Term already exists
-                        if (Dictionary.Where(i => i.Name == term && i.Type == type).Any())
+                        if (TermExists(term, type))
                         {
                             Console.WriteLine($"\"{term}\" already exists.");
                         }
-                        // Term does not exist
                         else
                         {
-                            Dictionary.Add(new(term, (TermType)type));
+                            Dictionary.Add(new(term, type));
                             // Call e
                         }
                         break;
@@ -194,6 +189,11 @@
         public static void SaveDictionary()
         {
             File.WriteAllText(Path, Utility.Serialize(Dictionary));
+        }
+
+        public static bool TermExists(string term, TermType type)
+        {
+            return Dictionary.Where(i => i.Name == term && i.Type == type).Any();
         }
     }
 }
