@@ -45,8 +45,8 @@
 
         readonly static Dictionary<string, Tense> StringToTense = new()
         {
-            { "pst", Tense.Present },
-            { "pft", Tense.Perfect },
+            { "pre", Tense.Present },
+            { "per", Tense.Perfect },
             { "sp", Tense.SimplePast },
             { "pp", Tense.PastPerfect },
             { "f1", Tense.Future1 },
@@ -113,7 +113,8 @@
             {
                 Console.Clear();
 
-                Console.WriteLine("Options:\nv - View term\na - Add term\ne - Edit term\nd - Delete term\n");
+                Console.WriteLine("Options:\nv <term> <type> - View term\na <term> <type> - Add term\ne <term> <type> - Edit term\nd <term> <type> - Delete term\n");
+                Console.WriteLine("Types:\n  * n - noun\n  * v - verb\n  * adv - adverb\n  * adj- adjective\n  * pro - pronoun\n  * preposition\n  * c - conjunction\n  * d - determiner\n  * e - exclamation");
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
                 string option = inputs[0].ToLower();
@@ -286,9 +287,13 @@
             {
                 Console.WriteLine("  * akk <bool> - Is Akkusativ\n  * dat <bool> - Is Dativ");
             }
-            Console.WriteLine("To add a new entry, set index to -1.\n");
-            Console.Write("To delete an entry, set content to \"[REMOVE ENTRY]\".\n");
-            Console.WriteLine("For booleans, \"1\" = true. Anything else = false");
+            Console.WriteLine("Indexes start from 0.");
+            Console.WriteLine("To add a new entry, set index to -1.");
+            Console.WriteLine("To delete an entry, set content to \"[REMOVE ENTRY]\".");
+            Console.WriteLine("Types:\n  * n - noun\n  * v - verb\n  * adv - adverb\n  * adj- adjective\n  * pro - pronoun\n  * preposition\n  * c - conjunction\n  * d - determiner\n  * e - exclamation");
+            Console.WriteLine("Gender:\n  * r - masculine (der)\n  * e - feminine (die)\n  * s - neutral (das)");
+            Console.WriteLine("Tense:\n  * pre - present (Präsens)\n  * per - perfect (Perfekt)\n  * sp - simple past (Präteritum)\n  * pp - past perfect (Plusquamperfekt)\n  * f1 - future 1 (Futur 1)\n  * f2 - future 2 (Futur 2)");
+            Console.WriteLine("Booleans\n  * 1 - true\n  * anything else - false");
 
             List<string> arguments = Console.ReadLine().Split(" ").ToList();
 
