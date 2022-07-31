@@ -2,6 +2,9 @@
 {
     using Newtonsoft.Json;
 
+    /// <summary>
+    /// A class containing useful methods. Cannot be used in other assemblies.
+    /// </summary>
     public static class Utility
     {
         /// <summary>
