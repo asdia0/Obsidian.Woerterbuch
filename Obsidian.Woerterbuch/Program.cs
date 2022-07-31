@@ -168,7 +168,7 @@
 
             foreach (string element in list)
             {
-                text += $"  * {element}\n"
+                text += $"  * {element}\n";
             }
 
             return text;
