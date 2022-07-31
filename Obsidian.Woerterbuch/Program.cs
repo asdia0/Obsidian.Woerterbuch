@@ -84,8 +84,8 @@
                             string text = string.Empty;
                             text += $"Term: {termV.Name}\n";
                             text += $"Type: {termV.Type}\n";
-                            text += $"Definition{(termV.Definitions.Count > 1 ? "s" : string.Empty)}: {string.Join("\n  * ", termV.Definitions)}\n";
-                            text += $"Synonym{(termV.Synonyms.Count > 1 ? "s" : string.Empty)}: {string.Join("\n  * ", termV.Synonyms)}\n";
+                            text += $"Definition{(termV.Definitions.Count > 1 ? "s" : string.Empty)}:{FormatLists(termV.Definitions)}\n";
+                            text += $"Synonym{(termV.Synonyms.Count > 1 ? "s" : string.Empty)}:{FormatLists(termV.Synonyms)}\n";
 
                             if (type == TermType.Noun)
                             {
@@ -157,6 +157,18 @@
                 text += $"    * wir: {conjugation.Conjugations[4]}\n";
                 text += $"    * ihr: {conjugation.Conjugations[5]}\n";
                 text += $"    * sie/Sie: {conjugation.Conjugations[6]}\n";
+            }
+
+            return text;
+        }
+
+        public static string FormatLists(List<string> list)
+        {
+            string text = string.Empty;
+
+            foreach (string element in list)
+            {
+                text += $"  * {element}\n"
             }
 
             return text;
