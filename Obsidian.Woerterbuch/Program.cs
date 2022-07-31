@@ -58,7 +58,7 @@
             {
                 Console.Clear();
 
-                Console.WriteLine("Options:\nv - View term\na - Add term\ne - Edit term\nd - Delete term\ns - Save dictionary\nq - Quit");
+                Console.WriteLine("Options:\nv - View term\na - Add term\ne - Edit term\nd - Delete term\ns - Save dictionary\nq - Quit\n");
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
                 string option = inputs[0].ToLower();
@@ -67,7 +67,7 @@
 
                 if (option != "s" && option != "q" && inputs.Count != 3)
                 {
-                    Console.WriteLine("Incomplete argument. Please input a term and its type.");
+                    Console.WriteLine("\nIncomplete argument. Please input a term and its type.");
                     Proceed();
                     continue;
                 }
