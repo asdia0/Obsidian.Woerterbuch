@@ -76,5 +76,10 @@
             this.IsDativ = null;
             this.IsAkkusativ = null;
         }
+
+        public override string ToString()
+        {
+            return Utility.Serialize(this);
+        }
     }
 }
