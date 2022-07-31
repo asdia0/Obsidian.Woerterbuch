@@ -50,7 +50,8 @@
 
                         break;
                     case "q":
-
+                        // Save Dictionary
+                        File.WriteAllText(Path, Utility.Serialize(Dictionary));
                         return;
                 }
             }
