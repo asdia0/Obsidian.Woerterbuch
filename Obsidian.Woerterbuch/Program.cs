@@ -302,7 +302,7 @@
                 || (type != TermType.Verb && ValidOptionsV.Contains(arguments[0]))
                 || (type != TermType.Verb && type != TermType.Preposition && ValidOptionsVA.Contains(arguments[0])))
             {
-                Console.WriteLine($"\n\"{arguments[0]}\" is an invalid option");
+                Console.WriteLine($"\n\"{arguments[0]}\" is an invalid option.");
             }
 
             int count = arguments.Count;
