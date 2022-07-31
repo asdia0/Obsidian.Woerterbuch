@@ -5,7 +5,7 @@
     /// <summary>
     /// A class containing useful methods. Cannot be used in other assemblies.
     /// </summary>
-    public static class Utility
+    internal static class Utility
     {
         /// <summary>
         /// Serializes an object.
