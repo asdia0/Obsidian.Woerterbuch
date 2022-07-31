@@ -132,6 +132,9 @@
                         SaveDictionary();
                         return;
                 }
+
+                Console.WriteLine("Enter a character to proceed.");
+                Console.ReadLine();
             }
         }
 
