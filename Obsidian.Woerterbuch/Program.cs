@@ -84,8 +84,8 @@
                             string text = string.Empty;
                             text += $"Term: {termV.Name}\n";
                             text += $"Type: {termV.Type}\n";
-                            text += $"Definition{(termV.Definitions.Count > 1 ? "s" : string.Empty)}:{string.Join("\n  * ", termV.Definitions)}\n";
-                            text += $"Synonym{(termV.Synonyms.Count > 1 ? "s" : string.Empty)}:{string.Join("\n  * ", termV.Synonyms)}\n";
+                            text += $"Definition{(termV.Definitions.Count > 1 ? "s" : string.Empty)}: {string.Join("\n  * ", termV.Definitions)}\n";
+                            text += $"Synonym{(termV.Synonyms.Count > 1 ? "s" : string.Empty)}: {string.Join("\n  * ", termV.Synonyms)}\n";
 
                             if (type == TermType.Noun)
                             {
