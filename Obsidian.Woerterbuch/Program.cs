@@ -164,6 +164,7 @@
                         else
                         {
                             Dictionary.Add(new(term, type));
+                            SaveDictionary();
                             TermEditor(term, type);
                         }
                         break;
@@ -430,6 +431,9 @@
                     }
                     break;
             }
+
+            SaveDictionary();
+            Proceed();
         }
 
         public static bool CheckArgumentLength(List<string> arguments, int count)
