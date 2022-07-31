@@ -2,6 +2,9 @@
 {
     public static class Flashcard
     {
-
+        public static void Generate()
+        {
+            
+        }
     }
 }
