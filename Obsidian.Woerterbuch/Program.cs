@@ -93,7 +93,7 @@
             "dat"
         };
 
-        static void Main(string[] args)
+        static void Main()
         {
             // Initialize Dictionary
             if (File.Exists(Path))
