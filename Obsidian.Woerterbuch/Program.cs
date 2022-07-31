@@ -42,7 +42,7 @@
             // Get inputs
             while (true)
             {
-                Console.WriteLine("Options:\na - Add term\ne - Edit term\nv - View term\nd - Delete term\ns - Save dictionary\nq - Quit");
+                Console.WriteLine("Options:\nv - View term\na - Add term\ne - Edit term\nd - Delete term\ns - Save dictionary\nq - Quit");
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
                 string option = inputs[0].ToLower();
@@ -59,6 +59,9 @@
 
                 switch (option)
                 {
+                    case "v":
+
+                        break;
                     case "a":
                         // Term already exists
                         if (Dictionary.Where(i => i.Name == term && i.Type == type).Any())
@@ -73,9 +76,6 @@
                         }
                         break;
                     case "e":
-
-                        break;
-                    case "v":
 
                         break;
                     case "d":
