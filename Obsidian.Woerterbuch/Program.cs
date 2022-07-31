@@ -435,7 +435,6 @@
             }
 
             SaveDictionary();
-            Proceed();
         }
 
         public static bool CheckArgumentLength(List<string> arguments, int count)
@@ -443,7 +442,6 @@
             if (arguments.Count != count)
             {
                 Console.WriteLine("\nIncomplete argument.");
-                Proceed();
                 return false;
             }
             return true;
