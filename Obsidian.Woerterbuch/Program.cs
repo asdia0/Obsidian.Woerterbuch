@@ -332,7 +332,7 @@
                         {
                             termE.Definitions.Add(arguments[2]);
                         }
-                        else if (index < termE.Definitions.Count)
+                        else if (0 <= index && index < termE.Definitions.Count)
                         {
                             if (arguments[2] == "[REMOVE ENTRY]")
                             {
@@ -356,7 +356,7 @@
                         {
                             termE.Synonyms.Add(arguments[2]);
                         }
-                        else if (index < termE.Synonyms.Count)
+                        else if (0 <= index && index < termE.Synonyms.Count)
                         {
                             if (arguments[2] == "[REMOVE ENTRY]")
                             {
