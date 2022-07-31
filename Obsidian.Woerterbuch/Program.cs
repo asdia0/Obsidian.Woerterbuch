@@ -56,8 +56,8 @@
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
                 string option = inputs[0].ToLower();
-                string term = (inputs.Count > 1 ? string.Empty : inputs[1]);
-                string typeS = (inputs.Count > 2 ? string.Empty : inputs[2]);
+                string term = (inputs.Count > 1 ? inputs[1] : string.Empty);
+                string typeS = (inputs.Count > 2 ? inputs[2] : string.Empty);
 
                 if (!StringToType.ContainsKey(typeS))
                 {
