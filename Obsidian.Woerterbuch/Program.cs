@@ -13,6 +13,19 @@
 
         public static List<Term> Dictionary;
 
+        public static Dictionary<string, TermType> StringToType = new()
+        {
+            { "n", TermType.Noun },
+            { "v", TermType.Verb },
+            { "adj", TermType.Adjective },
+            { "adv", TermType.Adverb },
+            { "pro", TermType.Pronoun },
+            { "pre", TermType.Preposition },
+            { "c", TermType.Conjunction },
+            { "d", TermType.Determiner },
+            { "e", TermType.Exclamation },
+        };
+
         static void Main(string[] args)
         {
             // Initialize Dictionary
@@ -33,12 +46,31 @@
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
                 string option = inputs[0].ToLower();
-                string term = (inputs.Count == 0 ? string.Empty : inputs[1]);
+                string term = (inputs.Count > 1 ? string.Empty : inputs[1]);
+                string typeS = (inputs.Count > 2 ? string.Empty : inputs[2]);
+
+                if (!StringToType.ContainsKey(typeS))
+                {
+                    Console.WriteLine($"\"{typeS}\" is not a valid word type.");
+                    continue;
+                }
+
+                TermType type = StringToType[typeS];
 
                 switch (option)
                 {
                     case "a":
-
+                        // Entry already exists
+                        if (Dictionary.Where(i => i.Name == term).Any())
+                        {
+                            Console.WriteLine($"\"{term}\" already exists.");
+                        }
+                        // Entry does not exist
+                        else
+                        {
+                            Dictionary.Add(new(term, type));
+                            // Call e
+                        }
                         break;
                     case "e":
 
