@@ -35,12 +35,50 @@
             { Tense.Future1, "Futur 1" },
             { Tense.Future2, "Futur 2" },
         };
+
+        readonly static Dictionary<string, Gender> StringToGender = new()
+        {
+            { "r", Gender.Masculine },
+            { "e", Gender.Feminine },
+            { "s", Gender.Neutral }
+        };
+
         readonly static List<string> ValidOptionsMain = new()
         {
             "v",
             "a",
             "e",
             "d"
+        };
+
+        readonly static List<string> ValidOptionsEdit = new()
+        {
+            "n",
+            "t",
+            "d",
+            "s",
+            "g",
+            "p",
+            "c",
+            "akk",
+            "dat"
+        };
+
+        readonly static List<string> ValidOptionsN = new()
+        {
+            "g",
+            "p"
+        };
+
+        readonly static List<string> ValidOptionsV = new()
+        {
+            "c"
+        };
+
+        readonly static List<string> ValidOptionsVA = new()
+        {
+            "akk",
+            "dat"
         };
 
         static void Main(string[] args)
@@ -79,7 +117,7 @@
 
                 if (inputs.Count != 3)
                 {
-                    Console.WriteLine("\nIncomplete argument. Please input a term and its type.");
+                    Console.WriteLine("\nIncomplete argument. Please input a term and type.");
                     Proceed();
                     continue;
                 }
@@ -239,6 +277,108 @@
                 Console.WriteLine("  * akk <bool> - Is Akkusativ\n  * dat <bool> - Is Dativ");
             }
             Console.WriteLine("To add a new entry, set index to -1.\n");
+            Console.WriteLine("For booleans, \"1\" = true. Anything else = false");
+
+            List<string> arguments = Console.ReadLine().Split(" ").ToList();
+
+            if (!ValidOptionsEdit.Contains(arguments[0]) 
+                || (type != TermType.Noun && ValidOptionsN.Contains(arguments[0]))
+                || (type != TermType.Verb && ValidOptionsV.Contains(arguments[0]))
+                || (type != TermType.Verb && type != TermType.Preposition && ValidOptionsVA.Contains(arguments[0])))
+            {
+                Console.WriteLine($"\n\"{arguments[0]}\" is an invalid option");
+            }
+
+            int count = arguments.Count;
+
+            switch (arguments[0])
+            {
+                case "n":
+                    if (CheckArgumentLength(arguments, 2))
+                    {
+                        termE.Name = arguments[1];
+                    }
+                    break;
+                case "t":
+                    if (CheckArgumentLength(arguments, 2))
+                    {
+                        if (StringToType.ContainsKey(arguments[1]))
+                        {
+                            termE.Type = StringToType[arguments[1]];
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\"{arguments[1]}\" is not a valid word type.");
+                        }
+                    }
+                    break;
+                case "d":
+                    if (CheckArgumentLength(arguments, 3))
+                    {
+                        int index = int.Parse(arguments[1]);
+
+                        if (index < termE.Definitions.Count)
+                        {
+                            termE.Definitions[index] = arguments[2];
+                        }
+                    }
+                    break;
+                case "s":
+                    if (CheckArgumentLength(arguments, 3))
+                    {
+                        int index = int.Parse(arguments[1]);
+
+                        if (index < termE.Synonyms.Count)
+                        {
+                            termE.Synonyms[index] = arguments[2];
+                        }
+                    }
+                    break;
+                case "g":
+                    if (CheckArgumentLength(arguments, 2))
+                    {
+                        if (StringToGender.ContainsKey(arguments[1]))
+                        {
+                            termE.Gender = StringToGender[arguments[1]];
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\"{arguments[1]}\" is not a valid gender.");
+                        }
+                    }
+                    break;
+                case "p":
+                    if (CheckArgumentLength(arguments, 2))
+                    {
+                        termE.Plural = arguments[1];
+                    }
+                    break;
+                case "c":
+                    break;
+                case "akk":
+                    if (CheckArgumentLength(arguments, 2))
+                    {
+                        termE.IsAkkusativ = arguments[1] == "1";
+                    }
+                    break;
+                case "dat":
+                    if (CheckArgumentLength(arguments, 2))
+                    {
+                        termE.IsDativ = arguments[1] == "1";
+                    }
+                    break;
+            }
+        }
+
+        public static bool CheckArgumentLength(List<string> arguments, int count)
+        {
+            if (arguments.Count != count)
+            {
+                Console.WriteLine("\nIncomplete argument.");
+                Proceed();
+                return false;
+            }
+            return true;
         }
     }
 }
