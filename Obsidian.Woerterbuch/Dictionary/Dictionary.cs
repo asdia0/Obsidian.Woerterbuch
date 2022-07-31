@@ -94,20 +94,7 @@
 
         public static void Init()
         {
-            // Initialize Dictionary
-            if (File.Exists(Path))
-            {
-                Dict = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
-                if (Dict == null)
-                {
-                    Dict = new();
-                }
-            }
-            else
-            {
-                File.Create(Path);
-                Dict = new();
-            }
+            IntializeDictionary();
 
             // Get inputs
             while (true)
@@ -179,6 +166,23 @@
 
                 SaveDictionary();
                 Proceed();
+            }
+        }
+
+        public static void IntializeDictionary()
+        {
+            if (File.Exists(Path))
+            {
+                Dict = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
+                if (Dict == null)
+                {
+                    Dict = new();
+                }
+            }
+            else
+            {
+                File.Create(Path);
+                Dict = new();
             }
         }
 
