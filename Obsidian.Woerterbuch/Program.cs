@@ -65,13 +65,19 @@
                 string term = (inputs.Count > 1 ? inputs[1] : string.Empty);
                 string typeS = (inputs.Count > 2 ? inputs[2] : string.Empty);
 
-                if (typeS != string.Empty && !StringToType.ContainsKey(typeS))
+                if (option != "s" && option != "q" && inputs.Count != 3)
                 {
-                    Console.WriteLine($"\"{typeS}\" is not a valid word type.");
+                    Console.WriteLine("Incomplete argument. Please input a term and its type.");
                     continue;
                 }
 
-                TermType type = StringToType[typeS];
+                TermType? type = null;
+                if (option != "s" && option != "q" && !StringToType.ContainsKey(typeS))
+                {
+                    Console.WriteLine($"\"{typeS}\" is not a valid word type.");
+                    type = StringToType[typeS];
+                    continue;
+                }
 
                 Console.Clear();
 
@@ -123,7 +129,7 @@
                         // Term does not exist
                         else
                         {
-                            Dictionary.Add(new(term, type));
+                            Dictionary.Add(new(term, (TermType)type));
                             // Call e
                         }
                         break;
