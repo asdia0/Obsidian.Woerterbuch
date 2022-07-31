@@ -12,7 +12,7 @@
 
         private static string Separator = ",,";
 
-        private static List<Term> Dict;
+        public static List<Term> Dict;
 
         readonly static Dictionary<string, TermType> StringToType = new()
         {
