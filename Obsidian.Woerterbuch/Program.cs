@@ -26,6 +26,16 @@
             { "e", TermType.Exclamation },
         };
 
+        public static Dictionary<Tense, string> TenseToGerman = new()
+        {
+            { Tense.Present, "Präsens" },
+            { Tense.Perfect, "Perfekt" },
+            { Tense.SimplePast, "Präteritum" },
+            { Tense.PastPerfect, "Plusquamperfekt" },
+            { Tense.Future1, "Futur 1" },
+            { Tense.Future2, "Futur 2" },
+        };
+
         static void Main(string[] args)
         {
             // Initialize Dictionary
@@ -60,7 +70,41 @@
                 switch (option)
                 {
                     case "v":
+                        // Term exists
+                        if (Dictionary.Where(i => i.Name == term && i.Type == type).Any())
+                        {
+                            Term termV = Dictionary.Where(i => i.Name == term && i.Type == type).First();
 
+                            string text = string.Empty;
+                            text += $"Term: {termV.Name}\n";
+                            text += $"Type: {termV.Type}\n";
+                            text += $"Definition{(termV.Definitions.Count > 1 ? "s" : string.Empty)}:{string.Join("\n  * ", termV.Definitions)}\n";
+                            text += $"Synonym{(termV.Synonyms.Count > 1 ? "s" : string.Empty)}:{string.Join("\n  * ", termV.Synonyms)}\n";
+
+                            if (type == TermType.Noun)
+                            {
+                                text += $"Gender: {termV.Gender}\n";
+                                text += $"Plural: {termV.Plural}\n";
+                            }
+
+                            if (type == TermType.Verb)
+                            {
+                                text += $"Conjugations:\n{FormatConjugations(termV.Conjugations)}";
+                            }
+
+                            if (type == TermType.Verb || type == TermType.Preposition)
+                            {
+                                text += $"Is Akkusativ: {termV.IsAkkusativ}\n";
+                                text += $"Is Dativ: {termV.IsDativ}\n";
+                            }
+
+                            Console.WriteLine(text);
+                        }
+                        // Term does not exist
+                        else
+                        {
+                            Console.WriteLine($"\"{term} ({typeS}.)\" already exists.");
+                        }
                         break;
                     case "a":
                         // Term already exists
@@ -89,6 +133,24 @@
                         return;
                 }
             }
+        }
+
+        public static string FormatConjugations(List<Conjugation> conjugations)
+        {
+            string text = string.Empty;
+
+            foreach (Conjugation conjugation in conjugations)
+            {
+                text += $"  * {TenseToGerman[conjugation.Tense]}\n";
+                text += $"    * ich: {conjugation.Conjugations[1]}\n";
+                text += $"    * du: {conjugation.Conjugations[2]}\n";
+                text += $"    * er/sie/es: {conjugation.Conjugations[3]}\n";
+                text += $"    * wir: {conjugation.Conjugations[4]}\n";
+                text += $"    * ihr: {conjugation.Conjugations[5]}\n";
+                text += $"    * sie/Sie: {conjugation.Conjugations[6]}\n";
+            }
+
+            return text;
         }
     }
 }
