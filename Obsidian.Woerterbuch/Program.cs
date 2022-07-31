@@ -117,13 +117,13 @@
                         }
                         else
                         {
-                            Console.WriteLine($"\"{term} ({typeS}.)\" does not exist.");
+                            Console.WriteLine($"{FormatTerm(term, typeS)} does not exist.");
                         }
                         break;
                     case "a":
                         if (TermExists(term, type))
                         {
-                            Console.WriteLine($"\"{term}\" already exists.");
+                            Console.WriteLine($"{FormatTerm(term, typeS)} already exists.");
                         }
                         else
                         {
