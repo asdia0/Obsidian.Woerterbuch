@@ -73,6 +73,8 @@
 
                 TermType type = StringToType[typeS];
 
+                Console.Clear();
+
                 switch (option)
                 {
                     case "v":
