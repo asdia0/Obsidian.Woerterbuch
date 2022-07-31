@@ -148,6 +148,9 @@
                     case "q":
                         SaveDictionary();
                         return;
+                    default:
+                        Console.WriteLine($"\"{option}\" is not a recognised option.");
+                        break;
                 }
 
                 Proceed();
