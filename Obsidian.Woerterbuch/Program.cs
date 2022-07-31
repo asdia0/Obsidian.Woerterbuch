@@ -183,6 +183,11 @@
             return text;
         }
 
+        public static string FormatTerm(string term, string type)
+        {
+            return $"\"{term} ({type}.)\"";
+        }
+
         /// <summary>
         /// Deserialize and write the dictionary to a file.
         /// </summary>
