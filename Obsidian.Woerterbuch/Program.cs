@@ -80,7 +80,10 @@
                     continue;
                 }
 
-                type = StringToType[typeS];
+                if (option != "s" && option != "q")
+                {
+                    type = StringToType[typeS];
+                }
 
                 Console.Clear();
 
