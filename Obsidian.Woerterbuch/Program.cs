@@ -82,8 +82,7 @@
                         Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
                         break;
                     case "q":
-                        // Save Dictionary
-                        File.WriteAllText(Path, Utility.Serialize(Dictionary));
+                        Utility.SaveDictionary(Path, Dictionary);
                         return;
                 }
             }
