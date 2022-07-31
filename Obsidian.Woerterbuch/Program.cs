@@ -14,6 +14,7 @@
 
         static void Main(string[] args)
         {
+            // Initialize Dictionary
             if (File.Exists(Path))
             {
                 Dictionary = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
