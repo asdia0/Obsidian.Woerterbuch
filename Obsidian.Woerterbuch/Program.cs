@@ -88,7 +88,7 @@
                     case "v":
                         if (TermExists(term, type))
                         {
-                            TermEditor(term, type);
+                            TermViewer(term, type);
                         }
                         else
                         {
@@ -176,7 +176,7 @@
             return Dictionary.Where(i => i.Name == term && i.Type == type).Any();
         }
 
-        public static void TermEditor(string term, TermType type)
+        public static void TermViewer(string term, TermType type)
         {
             Term termV = Dictionary.Where(i => i.Name == term && i.Type == type).First();
 
