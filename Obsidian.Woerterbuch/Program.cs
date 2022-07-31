@@ -42,7 +42,7 @@
             // Get inputs
             while (true)
             {
-                Console.WriteLine("Options:\na - Add term\ne - Edit term\nv - View term\nd - Delete term\nq - Quit");
+                Console.WriteLine("Options:\na - Add term\ne - Edit term\nv - View term\nd - Delete term\ns - Save dictionary\nq - Quit");
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
                 string option = inputs[0].ToLower();
@@ -80,6 +80,9 @@
                         break;
                     case "d":
                         Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
+                        break;
+                    case "s":
+                        Utility.SaveDictionary(Path, Dictionary);
                         break;
                     case "q":
                         Utility.SaveDictionary(Path, Dictionary);
