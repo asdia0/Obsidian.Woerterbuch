@@ -142,9 +142,6 @@
                     case "d":
                         Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
                         break;
-                    case "q":
-                        SaveDictionary();
-                        return;
                     default:
                         Console.WriteLine($"\"{option}\" is not a recognised option.");
                         break;
