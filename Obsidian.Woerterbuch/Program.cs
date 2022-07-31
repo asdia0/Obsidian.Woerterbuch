@@ -68,6 +68,7 @@
                 if (option != "s" && option != "q" && inputs.Count != 3)
                 {
                     Console.WriteLine("Incomplete argument. Please input a term and its type.");
+                    Proceed();
                     continue;
                 }
 
@@ -76,6 +77,7 @@
                 {
                     Console.WriteLine($"\"{typeS}\" is not a valid word type.");
                     type = StringToType[typeS];
+                    Proceed();
                     continue;
                 }
 
@@ -147,9 +149,14 @@
                         return;
                 }
 
-                Console.WriteLine("\nEnter a character to proceed.");
-                Console.ReadLine();
+                Proceed();
             }
+        }
+
+        public static void Proceed()
+        {
+            Console.WriteLine("\nEnter a character to proceed.");
+            Console.ReadLine();
         }
 
         public static string FormatConjugations(List<Conjugation> conjugations)
