@@ -92,11 +92,25 @@
             "dat"
         };
 
-        public static void Init()
+        public static void IntializeDictionary()
         {
-            IntializeDictionary();
+            if (File.Exists(Path))
+            {
+                Dict = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
+                if (Dict == null)
+                {
+                    Dict = new();
+                }
+            }
+            else
+            {
+                File.Create(Path);
+                Dict = new();
+            }
+        }
 
-            // Get inputs
+        public static void Loop()
+        {
             while (true)
             {
                 Console.Clear();
@@ -127,7 +141,7 @@
                     Proceed();
                     continue;
                 }
-                
+
                 TermType type = StringToType[typeS];
 
                 Console.Clear();
@@ -166,23 +180,6 @@
 
                 SaveDictionary();
                 Proceed();
-            }
-        }
-
-        public static void IntializeDictionary()
-        {
-            if (File.Exists(Path))
-            {
-                Dict = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
-                if (Dict == null)
-                {
-                    Dict = new();
-                }
-            }
-            else
-            {
-                File.Create(Path);
-                Dict = new();
             }
         }
 
