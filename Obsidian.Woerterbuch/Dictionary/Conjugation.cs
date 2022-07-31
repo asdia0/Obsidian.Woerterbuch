@@ -32,5 +32,10 @@
             this.Conjugations = new string[7];
             this.Conjugations[0] = infinitive;
         }
+
+        public override string ToString()
+        {
+            return Utility.Serialize(this);
+        }
     }
 }
