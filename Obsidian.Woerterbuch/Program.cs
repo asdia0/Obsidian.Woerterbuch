@@ -76,10 +76,11 @@
                 if (option != "s" && option != "q" && !StringToType.ContainsKey(typeS))
                 {
                     Console.WriteLine($"\"{typeS}\" is not a valid word type.");
-                    type = StringToType[typeS];
                     Proceed();
                     continue;
                 }
+
+                type = StringToType[typeS];
 
                 Console.Clear();
 
