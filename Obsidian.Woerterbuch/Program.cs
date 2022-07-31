@@ -103,11 +103,11 @@
                         else
                         {
                             Dictionary.Add(new(term, type));
-                            // Call e
+                            TermEditor(term, type);
                         }
                         break;
                     case "e":
-
+                        TermEditor(term, type);
                         break;
                     case "d":
                         Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
@@ -204,6 +204,32 @@
             }
 
             Console.WriteLine(text);
+        }
+
+        public static void TermEditor(string term, TermType type)
+        {
+            Console.Clear();
+
+            Term termE = Dictionary.Where(i => i.Name == term && i.Type == type).First();
+
+            // Show current state
+            TermViewer(term, type);
+
+            // Give options
+            Console.WriteLine("Options:\n  * n <new_name> - Name\n  * t <new_type> - Type\n  * d <index> <new_definition> - Defintion\n  * s <index> <new-synonym> - Synonym");
+            if (type == TermType.Noun)
+            {
+                Console.WriteLine("  * g <new_gender> - Gender\n  * p <new_plural_form> - Plural");
+            }
+            if (type == TermType.Verb)
+            {
+                Console.WriteLine("  * c <tense> <index> <new_conjugation> - Conjugation");
+            }
+            if (type == TermType.Verb || type == TermType.Preposition)
+            {
+                Console.WriteLine("  * akk <bool> - Is Akkusativ\n  * dat <bool> - Is Dativ");
+            }
+            Console.WriteLine("To add a new entry, set index to -1.\n");
         }
     }
 }
