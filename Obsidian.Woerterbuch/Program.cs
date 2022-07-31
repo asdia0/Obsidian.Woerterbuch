@@ -194,7 +194,6 @@
         public static void SaveDictionary()
         {
             File.WriteAllText(Path, Utility.Serialize(Dictionary));
-            Console.WriteLine($"Dictionary saved to {Path}.");
         }
     }
 }
