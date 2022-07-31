@@ -43,6 +43,16 @@
             { "s", Gender.Neutral }
         };
 
+        readonly static Dictionary<string, Tense> StringToTense = new()
+        {
+            { "pst", Tense.Present },
+            { "pft", Tense.Perfect },
+            { "sp", Tense.SimplePast },
+            { "pp", Tense.PastPerfect },
+            { "f1", Tense.Future1 },
+            { "f2", Tense.Future2 },
+        };
+
         readonly static List<string> ValidOptionsMain = new()
         {
             "v",
@@ -381,6 +391,26 @@
                     }
                     break;
                 case "c":
+                    if (CheckArgumentLength(arguments, 4))
+                    {
+                        if (StringToTense.ContainsKey(arguments[1]))
+                        {
+                            int index = int.Parse(arguments[2]);
+                            if (0 <= index && index < 7)
+                            {
+                                Tense tense = StringToTense[arguments[1]];
+                                termE.Conjugations.Where(i => i.Tense == tense).First().Conjugations[index] = arguments[3];
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Invalid index ({index}).");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\"{arguments[1]}\" is not a valid tense.");
+                        }
+                    }
                     break;
                 case "akk":
                     if (CheckArgumentLength(arguments, 2))
