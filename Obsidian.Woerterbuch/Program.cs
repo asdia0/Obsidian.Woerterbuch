@@ -277,6 +277,7 @@
                 Console.WriteLine("  * akk <bool> - Is Akkusativ\n  * dat <bool> - Is Dativ");
             }
             Console.WriteLine("To add a new entry, set index to -1.\n");
+            Console.Write("To delete an entry, set content to \"[REMOVE ENTRY]\".\n");
             Console.WriteLine("For booleans, \"1\" = true. Anything else = false");
 
             List<string> arguments = Console.ReadLine().Split(" ").ToList();
@@ -323,6 +324,11 @@
                         }
                         else if (index < termE.Definitions.Count)
                         {
+                            if (arguments[2] == "[REMOVE ENTRY]")
+                            {
+                                termE.Definitions.RemoveAt(index);
+                                break;
+                            }
                             termE.Definitions[index] = arguments[2];
                         }
                         else
@@ -342,6 +348,11 @@
                         }
                         else if (index < termE.Synonyms.Count)
                         {
+                            if (arguments[2] == "[REMOVE ENTRY]")
+                            {
+                                termE.Synonyms.RemoveAt(index);
+                                break;
+                            }
                             termE.Synonyms[index] = arguments[2];
                         }
                         else
