@@ -317,9 +317,17 @@
                     {
                         int index = int.Parse(arguments[1]);
 
-                        if (index < termE.Definitions.Count)
+                        if (index == -1)
+                        {
+                            termE.Definitions.Add(arguments[2]);
+                        }
+                        else if (index < termE.Definitions.Count)
                         {
                             termE.Definitions[index] = arguments[2];
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Invalid index ({index}).");
                         }
                     }
                     break;
@@ -328,9 +336,17 @@
                     {
                         int index = int.Parse(arguments[1]);
 
-                        if (index < termE.Synonyms.Count)
+                        if (index == -1)
+                        {
+                            termE.Synonyms.Add(arguments[2]);
+                        }
+                        else if (index < termE.Synonyms.Count)
                         {
                             termE.Synonyms[index] = arguments[2];
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Invalid index ({index}).");
                         }
                     }
                     break;
