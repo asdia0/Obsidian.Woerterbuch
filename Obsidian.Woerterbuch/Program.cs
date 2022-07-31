@@ -52,6 +52,8 @@
             // Get inputs
             while (true)
             {
+                Console.Clear();
+
                 Console.WriteLine("Options:\nv - View term\na - Add term\ne - Edit term\nd - Delete term\ns - Save dictionary\nq - Quit");
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
