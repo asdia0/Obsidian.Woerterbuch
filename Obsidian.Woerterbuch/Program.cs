@@ -13,7 +13,7 @@
 
         private static string Separator = ",,";
 
-        private static List<Term> Dictionary;
+        private static List<Term> Dict;
 
         readonly static Dictionary<string, TermType> StringToType = new()
         {
@@ -98,16 +98,16 @@
             // Initialize Dictionary
             if (File.Exists(Path))
             {
-                Dictionary = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
-                if (Dictionary == null)
+                Dict = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
+                if (Dict == null)
                 {
-                    Dictionary = new();
+                    Dict = new();
                 }
             }
             else
             {
                 File.Create(Path);
-                Dictionary = new();
+                Dict = new();
             }
 
             // Get inputs
@@ -165,7 +165,7 @@
                         }
                         else
                         {
-                            Dictionary.Add(new(term, type));
+                            Dict.Add(new(term, type));
                             SaveDictionary();
                             TermEditor(term, type);
                         }
@@ -174,7 +174,7 @@
                         TermEditor(term, type);
                         break;
                     case "d":
-                        Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
+                        Dict.RemoveAll(i => i.Name == term && i.Type == type);
                         break;
                 }
 
@@ -229,17 +229,17 @@
         /// </summary>
         public static void SaveDictionary()
         {
-            File.WriteAllText(Path, Utility.Serialize(Dictionary));
+            File.WriteAllText(Path, Utility.Serialize(Dict));
         }
 
         public static bool TermExists(string term, TermType type)
         {
-            return Dictionary.Where(i => i.Name == term && i.Type == type).Any();
+            return Dict.Where(i => i.Name == term && i.Type == type).Any();
         }
 
         public static void TermViewer(string term, TermType type)
         {
-            Term termV = Dictionary.Where(i => i.Name == term && i.Type == type).First();
+            Term termV = Dict.Where(i => i.Name == term && i.Type == type).First();
 
             string text = string.Empty;
             text += $"Term: {termV.Name}\n";
@@ -271,7 +271,7 @@
         {
             Console.Clear();
 
-            Term termE = Dictionary.Where(i => i.Name == term && i.Type == type).First();
+            Term termE = Dict.Where(i => i.Name == term && i.Type == type).First();
 
             // Show current state
             TermViewer(term, type);
