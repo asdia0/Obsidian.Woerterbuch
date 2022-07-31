@@ -61,7 +61,7 @@
                 {
                     case "a":
                         // Entry already exists
-                        if (Dictionary.Where(i => i.Name == term).Any())
+                        if (Dictionary.Where(i => i.Name == term && i.Type == type).Any())
                         {
                             Console.WriteLine($"\"{term}\" already exists.");
                         }
@@ -76,7 +76,7 @@
 
                         break;
                     case "d":
-                        Dictionary.RemoveAll(i => i.Name == term);
+                        Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
                         break;
                     case "v":
 
