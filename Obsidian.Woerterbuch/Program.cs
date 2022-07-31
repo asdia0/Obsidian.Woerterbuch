@@ -141,7 +141,7 @@
                         return;
                 }
 
-                Console.WriteLine("Enter a character to proceed.");
+                Console.WriteLine("\nEnter a character to proceed.");
                 Console.ReadLine();
             }
         }
