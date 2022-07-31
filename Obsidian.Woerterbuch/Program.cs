@@ -44,7 +44,7 @@
 
                         break;
                     case "d":
-
+                        Dictionary.RemoveAll(i => i.Name == term);
                         break;
                     case "v":
 
