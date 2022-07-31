@@ -407,6 +407,11 @@
                             if (0 <= index && index < 7)
                             {
                                 Tense tense = StringToTense[arguments[1]];
+                                // Create conjugation if it does not exist.
+                                if (!termE.Conjugations.Where(i => i.Tense == tense).Any())
+                                {
+                                    termE.Conjugations.Add(new(term, tense));
+                                }
                                 termE.Conjugations.Where(i => i.Tense == tense).First().Conjugations[index] = arguments[3];
                             }
                             else
