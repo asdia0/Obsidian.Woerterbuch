@@ -126,10 +126,10 @@
                         Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
                         break;
                     case "s":
-                        Utility.SaveDictionary(Path, Dictionary);
+                        SaveDictionary();
                         break;
                     case "q":
-                        Utility.SaveDictionary(Path, Dictionary);
+                        SaveDictionary();
                         return;
                 }
             }
@@ -151,6 +151,14 @@
             }
 
             return text;
+        }
+
+        /// <summary>
+        /// Deserialize and write the dictionary to a file.
+        /// </summary>
+        public static void SaveDictionary()
+        {
+            File.WriteAllText(Path, Utility.Serialize(Dictionary));
         }
     }
 }
