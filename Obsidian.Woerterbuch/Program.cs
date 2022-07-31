@@ -1,8 +1,8 @@
-﻿using System;
-
-namespace Obsidian.Woerterbuch
+﻿namespace Obsidian.Woerterbuch
 {
-    class Program
+    using System;
+
+    public static class Program
     {
         static void Main(string[] args)
         {
