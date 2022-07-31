@@ -1,13 +1,12 @@
-﻿namespace Obsidian.Woerterbuch
+﻿namespace Obsidian.Woerterbuch.Dictionary
 {
-    using Dictionary;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using Newtonsoft.Json;
 
-    public static class Program
+    public static class Dictionary
     {
         private static string Path = "dict.json";
 
@@ -93,7 +92,7 @@
             "dat"
         };
 
-        static void Main()
+        public static void Init()
         {
             // Initialize Dictionary
             if (File.Exists(Path))
