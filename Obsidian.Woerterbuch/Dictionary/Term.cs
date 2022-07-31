@@ -65,14 +65,27 @@
 
         public Term(string name, TermType type)
         {
-            // Nullify all unessential properties on intialisation. Only fill in properties when edited.
+            // Set properties to default values.
             this.Name = name;
             this.Type = type;
             this.Definitions = new();
             this.Synonyms = new();
+
+            // Nouns
             this.Gender = null;
             this.Plural = null;
-            this.Conjugations = null;
+
+            // Verbs
+            if (this.Type == TermType.Verb)
+            {
+                this.Conjugations = new();
+            }
+            else
+            {
+                this.Conjugations = null;
+            }
+
+            // Verbs + Adjectives
             this.IsDativ = null;
             this.IsAkkusativ = null;
         }
