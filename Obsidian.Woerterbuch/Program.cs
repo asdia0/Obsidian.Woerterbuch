@@ -9,11 +9,11 @@
 
     public static class Program
     {
-        public static string Path = "dict.json";
+        private static string Path = "dict.json";
 
-        public static List<Term> Dictionary;
+        private static List<Term> Dictionary;
 
-        public static Dictionary<string, TermType> StringToType = new()
+        readonly static Dictionary<string, TermType> StringToType = new()
         {
             { "n", TermType.Noun },
             { "v", TermType.Verb },
@@ -26,7 +26,7 @@
             { "e", TermType.Exclamation },
         };
 
-        public static Dictionary<Tense, string> TenseToGerman = new()
+        readonly static Dictionary<Tense, string> TenseToGerman = new()
         {
             { Tense.Present, "Präsens" },
             { Tense.Perfect, "Perfekt" },
