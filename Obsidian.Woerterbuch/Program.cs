@@ -60,12 +60,12 @@
                 switch (option)
                 {
                     case "a":
-                        // Entry already exists
+                        // Term already exists
                         if (Dictionary.Where(i => i.Name == term && i.Type == type).Any())
                         {
                             Console.WriteLine($"\"{term}\" already exists.");
                         }
-                        // Entry does not exist
+                        // Term does not exist
                         else
                         {
                             Dictionary.Add(new(term, type));
