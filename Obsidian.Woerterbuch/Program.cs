@@ -58,14 +58,14 @@
             {
                 Console.Clear();
 
-                Console.WriteLine("Options:\nv - View term\na - Add term\ne - Edit term\nd - Delete term\ns - Save dictionary\nq - Quit\n");
+                Console.WriteLine("Options:\nv - View term\na - Add term\ne - Edit term\nd - Delete term\n");
 
                 List<string> inputs = Console.ReadLine().Split(" ").ToList();
                 string option = inputs[0].ToLower();
                 string term = (inputs.Count > 1 ? inputs[1] : string.Empty);
                 string typeS = (inputs.Count > 2 ? inputs[2] : string.Empty);
 
-                if (option != "s" && option != "q" && inputs.Count != 3)
+                if (inputs.Count != 3)
                 {
                     Console.WriteLine("\nIncomplete argument. Please input a term and its type.");
                     Proceed();
@@ -73,17 +73,14 @@
                 }
 
                 TermType? type = null;
-                if (option != "s" && option != "q" && !StringToType.ContainsKey(typeS))
+                if (!StringToType.ContainsKey(typeS))
                 {
                     Console.WriteLine($"\"{typeS}\" is not a valid word type.");
                     Proceed();
                     continue;
                 }
-
-                if (option != "s" && option != "q")
-                {
-                    type = StringToType[typeS];
-                }
+                
+                type = StringToType[typeS];
 
                 Console.Clear();
 
@@ -145,9 +142,6 @@
                     case "d":
                         Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
                         break;
-                    case "s":
-                        SaveDictionary();
-                        break;
                     case "q":
                         SaveDictionary();
                         return;
@@ -156,6 +150,7 @@
                         break;
                 }
 
+                SaveDictionary();
                 Proceed();
             }
         }
