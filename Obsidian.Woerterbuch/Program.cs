@@ -35,6 +35,13 @@
             { Tense.Future1, "Futur 1" },
             { Tense.Future2, "Futur 2" },
         };
+        readonly static List<string> ValidOptionsMain = new()
+        {
+            "v",
+            "a",
+            "e",
+            "d"
+        };
 
         static void Main(string[] args)
         {
@@ -65,6 +72,11 @@
                 string term = (inputs.Count > 1 ? inputs[1] : string.Empty);
                 string typeS = (inputs.Count > 2 ? inputs[2] : string.Empty);
 
+                if (!ValidOptionsMain.Contains(option))
+                {
+                    Console.WriteLine($"\n\"{option}\" is not a recognised option.");
+                }
+
                 if (inputs.Count != 3)
                 {
                     Console.WriteLine("\nIncomplete argument. Please input a term and its type.");
@@ -74,7 +86,7 @@
 
                 if (!StringToType.ContainsKey(typeS))
                 {
-                    Console.WriteLine($"\"{typeS}\" is not a valid word type.");
+                    Console.WriteLine($"\n\"{typeS}\" is not a valid word type.");
                     Proceed();
                     continue;
                 }
@@ -111,9 +123,6 @@
                         break;
                     case "d":
                         Dictionary.RemoveAll(i => i.Name == term && i.Type == type);
-                        break;
-                    default:
-                        Console.WriteLine($"\"{option}\" is not a recognised option.");
                         break;
                 }
 
