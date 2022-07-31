@@ -294,9 +294,18 @@
             Console.WriteLine("To add a new entry, set index to -1.");
             Console.WriteLine("To delete an entry, set content to \"[REMOVE ENTRY]\".\n");
             Console.WriteLine("Types:\n  * n - noun\n  * v - verb\n  * adv - adverb\n  * adj- adjective\n  * pro - pronoun\n  * preposition\n  * c - conjunction\n  * d - determiner\n  * e - exclamation\n");
-            Console.WriteLine("Gender:\n  * r - masculine (der)\n  * e - feminine (die)\n  * s - neutral (das)\n");
-            Console.WriteLine("Tense:\n  * pre - present (Präsens)\n  * per - perfect (Perfekt)\n  * sp - simple past (Präteritum)\n  * pp - past perfect (Plusquamperfekt)\n  * f1 - future 1 (Futur 1)\n  * f2 - future 2 (Futur 2)\n");
-            Console.WriteLine("Booleans:\n  * 1 - true\n  * anything else - false\n");
+            if (type == TermType.Noun)
+            {
+                Console.WriteLine("Gender:\n  * r - masculine (der)\n  * e - feminine (die)\n  * s - neutral (das)\n");
+            }
+            if (type == TermType.Verb)
+            {
+                Console.WriteLine("Tense:\n  * pre - present (Präsens)\n  * per - perfect (Perfekt)\n  * sp - simple past (Präteritum)\n  * pp - past perfect (Plusquamperfekt)\n  * f1 - future 1 (Futur 1)\n  * f2 - future 2 (Futur 2)\n");
+            }
+            if (type == TermType.Verb || type == TermType.Preposition)
+            {
+                Console.WriteLine("Booleans:\n  * 1 - true\n  * anything else - false\n");
+            }
 
             List<string> arguments = Console.ReadLine().Split(Separator).ToList();
 
