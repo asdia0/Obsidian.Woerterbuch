@@ -65,7 +65,7 @@
                 string term = (inputs.Count > 1 ? inputs[1] : string.Empty);
                 string typeS = (inputs.Count > 2 ? inputs[2] : string.Empty);
 
-                if (!StringToType.ContainsKey(typeS))
+                if (typeS != string.Empty && !StringToType.ContainsKey(typeS))
                 {
                     Console.WriteLine($"\"{typeS}\" is not a valid word type.");
                     continue;
