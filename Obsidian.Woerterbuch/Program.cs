@@ -123,7 +123,7 @@
                         // Term does not exist
                         else
                         {
-                            Console.WriteLine($"\"{term} ({typeS}.)\" already exists.");
+                            Console.WriteLine($"\"{term} ({typeS}.)\" does not exist.");
                         }
                         break;
                     case "a":
