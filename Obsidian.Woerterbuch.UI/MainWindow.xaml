@@ -7,22 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="850">
     <Grid>
-        <ListView>
-
+        <ListView SizeChanged="ListView_SizeChanged">
             <ListView.View>
-
                 <GridView>
-                    <GridViewColumn Width="650">
-                        <GridViewColumnHeader>Term
-                            <GridViewColumnHeader.ContextMenu>
-                                <ContextMenu/>
-                            </GridViewColumnHeader.ContextMenu>
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
-
+                    <GridViewColumn Header="Term"/>
                     <GridViewColumn Header="Class" Width="200"/>
                 </GridView>
-
             </ListView.View>
         </ListView>
     </Grid>

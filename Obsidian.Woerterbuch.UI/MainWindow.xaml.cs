@@ -24,5 +24,17 @@
         {
             InitializeComponent();
         }
+
+        private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ListView _ListView = sender as ListView;
+            GridView _GridView = _ListView.View as GridView;
+            var _ActualWidth = _ListView.ActualWidth - SystemParameters.VerticalScrollBarWidth;
+            for (Int32 i = 1; i < _GridView.Columns.Count; i++)
+            {
+                _ActualWidth = _ActualWidth - _GridView.Columns[i].ActualWidth;
+            }
+            _GridView.Columns[0].Width = _ActualWidth;
+        }
     }
 }
