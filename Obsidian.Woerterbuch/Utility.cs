@@ -1,6 +1,5 @@
-﻿namespace Obsidian.Woerterbuch
+﻿namespace Obsidian.Woerterbuch.Dictionary
 {
-    using Dictionary;
     using System.Collections.Generic;
     using System.IO;
     using Newtonsoft.Json;
