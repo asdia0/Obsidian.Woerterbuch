@@ -7,13 +7,13 @@
     /// <summary>
     /// A class containing useful methods. Cannot be used in other assemblies.
     /// </summary>
-    internal static class Utility
+    public static class Utility
     {
-        private static string Path = "dict.json";
+        public static string Path = "dict.json";
 
-        private static List<Term> Dictionary;
+        public static List<Term> Dictionary;
 
-        static void InitializeDictionary()
+        public static void InitializeDictionary()
         {
             if (File.Exists(Path))
             {
