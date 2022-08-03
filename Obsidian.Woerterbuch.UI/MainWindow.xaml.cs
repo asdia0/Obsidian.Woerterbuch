@@ -21,11 +21,38 @@
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Term> Dictionary { get; set; }
+
+        public List<string> TermSource
+        {
+            get
+            {
+                return this.Dictionary.Select(i => i.Name).ToList();
+            }
+        }
+
+        public List<string> ClassSource
+        {
+            get
+            {
+                return this.Dictionary.Select(i => i.Type.ToString()).ToList();
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
 
-            this.TermCol = 
+            Utility.InitializeDictionary();
+            this.Dictionary = Utility.Dictionary;
+
+            Binding termBind = new("Terms");
+            termBind.Mode = BindingMode.OneWay;
+            termBind.Source = this.TermSource;
+
+            Binding classBind = new("Classes");
+            classBind.Mode = BindingMode.OneWay;
+            classBind.Source = this.ClassSource;
         }
 
         private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
