@@ -10,8 +10,8 @@
         <ListView SizeChanged="ListView_SizeChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Term"/>
-                    <GridViewColumn Header="Class" Width="200"/>
+                    <GridViewColumn Header="Term" x:Name="TermCol"/>
+                    <GridViewColumn Header="Class" Width="200" x:Name="ClassCol"/>
                 </GridView>
             </ListView.View>
         </ListView>

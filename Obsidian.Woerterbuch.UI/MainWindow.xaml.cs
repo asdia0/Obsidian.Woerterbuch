@@ -1,5 +1,6 @@
 ﻿namespace Obsidian.Woerterbuch.UI
 {
+    using Dictionary;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -23,6 +24,8 @@
         public MainWindow()
         {
             InitializeComponent();
+
+            this.TermCol = 
         }
 
         private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
