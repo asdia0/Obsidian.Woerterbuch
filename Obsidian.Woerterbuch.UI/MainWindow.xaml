@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="850">
     <Grid>
-        <ListView SizeChanged="ListView_SizeChanged">
+        <ListView SizeChanged="ListView_SizeChanged" Name="termList">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Term" x:Name="TermCol"/>
-                    <GridViewColumn Header="Class" Width="200" x:Name="ClassCol"/>
+                    <GridViewColumn Header="Term" x:Name="TermCol" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Class" Width="200" x:Name="ClassCol" DisplayMemberBinding="{Binding Type}"/>
                 </GridView>
             </ListView.View>
         </ListView>

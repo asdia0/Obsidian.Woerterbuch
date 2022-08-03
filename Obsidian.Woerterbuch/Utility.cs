@@ -21,14 +21,12 @@
                 if (Dictionary == null)
                 {
                     Dictionary = new();
-                    SaveDictionary();
                 }
             }
             else
             {
                 File.Create(Path);
                 Dictionary = new();
-                SaveDictionary();
             }
         }
 

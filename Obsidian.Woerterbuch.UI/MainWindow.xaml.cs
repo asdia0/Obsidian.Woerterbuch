@@ -3,6 +3,7 @@
     using Dictionary;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -21,38 +22,18 @@
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Term> Dictionary { get; set; }
-
-        public List<string> TermSource
-        {
-            get
-            {
-                return this.Dictionary.Select(i => i.Name).ToList();
-            }
-        }
-
-        public List<string> ClassSource
-        {
-            get
-            {
-                return this.Dictionary.Select(i => i.Type.ToString()).ToList();
-            }
-        }
+        public ObservableCollection<Term> Dictionary { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
             Utility.InitializeDictionary();
-            this.Dictionary = Utility.Dictionary;
+            this.Dictionary = new ObservableCollection<Term>(Utility.Dictionary);
 
-            Binding termBind = new("Terms");
-            termBind.Mode = BindingMode.OneWay;
-            termBind.Source = this.TermSource;
+            this.termList.ItemsSource = this.Dictionary;
 
-            Binding classBind = new("Classes");
-            classBind.Mode = BindingMode.OneWay;
-            classBind.Source = this.ClassSource;
+            this.Dictionary.Add(new("Tier", TermType.Noun));
         }
 
         private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
