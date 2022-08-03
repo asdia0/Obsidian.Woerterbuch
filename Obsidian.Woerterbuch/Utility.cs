@@ -10,6 +10,37 @@
     /// </summary>
     internal static class Utility
     {
+        private static string Path = "dict.json";
+
+        private static List<Term> Dictionary;
+
+        static void InitializeDictionary()
+        {
+            if (File.Exists(Path))
+            {
+                Dictionary = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
+                if (Dictionary == null)
+                {
+                    Dictionary = new();
+                    SaveDictionary();
+                }
+            }
+            else
+            {
+                File.Create(Path);
+                Dictionary = new();
+                SaveDictionary();
+            }
+        }
+
+        /// <summary>
+        /// Deserialize and write the dictionary to a file.
+        /// </summary>
+        public static void SaveDictionary()
+        {
+            File.WriteAllText(Path, Utility.Serialize(Dictionary));
+        }
+
         /// <summary>
         /// Serializes an object.
         /// </summary>
@@ -22,5 +53,6 @@
             jsonSerializerSettings.Formatting = Formatting.Indented;
             return JsonConvert.SerializeObject(value, jsonSerializerSettings);
         }
+
     }
 }
