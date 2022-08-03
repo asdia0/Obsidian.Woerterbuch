@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Obsidian.Woerterbuch.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="850">
+        Title="Dictionary" Height="400" Width="850">
     <Grid>
         <ListView SizeChanged="ListView_SizeChanged" Name="termList">
             <ListView.View>
