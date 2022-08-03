@@ -3,12 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Obsidian.Woerterbuch", "Obsidian.Woerterbuch\Obsidian.Woerterbuch.csproj", "{5F44F585-7635-47AE-9648-5936E6B59B80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Obsidian.Woerterbuch.Dictionary", "Obsidian.Woerterbuch\Obsidian.Woerterbuch.Dictionary.csproj", "{5F44F585-7635-47AE-9648-5936E6B59B80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{948D3255-0FBF-4C82-A8D9-732AC6E23CB1}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obsidian.Woerterbuch.UI", "Obsidian.Woerterbuch.UI\Obsidian.Woerterbuch.UI.csproj", "{2F2C20BF-23D5-41C6-AD8D-5DCC8360248E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
