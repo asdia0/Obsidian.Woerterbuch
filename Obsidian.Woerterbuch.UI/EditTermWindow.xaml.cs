@@ -17,9 +17,9 @@ namespace Obsidian.Woerterbuch.UI
     /// <summary>
     /// Interaction logic for Term.xaml
     /// </summary>
-    public partial class Term : Window
+    public partial class EditTermWindow : Window
     {
-        public Term()
+        public EditTermWindow()
         {
             InitializeComponent();
         }

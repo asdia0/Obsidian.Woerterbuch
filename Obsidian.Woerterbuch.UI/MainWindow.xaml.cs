@@ -50,7 +50,7 @@
 
         private void NewTerm_Click(object sender, RoutedEventArgs e)
         {
-            new Term().Show();
+            new EditTermWindow().Show();
             return;
         }
     }
