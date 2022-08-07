@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Dictionary" Height="400" Width="850">
     <Grid>
-        <ListView SizeChanged="ListView_SizeChanged" Name="termList">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_New Term"/>
+            <MenuItem Header="_About"/>
+        </Menu>
+        <ListView SizeChanged="ListView_SizeChanged" Name="termList" Margin="0,18,0,-18">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Term" x:Name="TermCol" DisplayMemberBinding="{Binding Name}"/>
