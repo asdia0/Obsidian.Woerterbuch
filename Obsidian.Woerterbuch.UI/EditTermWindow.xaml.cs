@@ -29,6 +29,7 @@
         {
             this.Term = term;
             InitializeComponent();
+            this.Title += $": {this.Term.Name} ({this.Term.Type})";
         }
     }
 }
