@@ -50,6 +50,11 @@
         [JsonProperty]
         public List<Conjugation>? Conjugations { get; set; }
 
+        /// <summary>
+        /// A value indicating whether the term is a regular verb. Only applies to verbs.
+        /// </summary>
+        public bool? IsRegular { get; set; }
+
         // Verb + Preposition properties
         /// <summary>
         /// A value indicating whether the term can be written in Akkusativ. Only applies to verbs and prepositions.
@@ -84,6 +89,7 @@
             {
                 this.Conjugations = null;
             }
+            this.IsRegular = null;
 
             // Verbs + Adjectives
             this.IsDativ = null;

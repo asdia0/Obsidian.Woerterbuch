@@ -1,7 +1,9 @@
 ﻿namespace Obsidian.Woerterbuch.UI
 {
+    using Dictionary;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -20,9 +22,18 @@
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<Term> Dictionary { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Utility.InitializeDictionary();
+            this.Dictionary = new ObservableCollection<Term>(Utility.Dictionary);
+
+            this.termList.ItemsSource = this.Dictionary;
+
+            this.Dictionary.Add(new("Tier", TermType.Noun));
         }
 
         private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -35,6 +46,11 @@
                 _ActualWidth = _ActualWidth - _GridView.Columns[i].ActualWidth;
             }
             _GridView.Columns[0].Width = _ActualWidth;
+        }
+
+        private void NewTerm_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Obsidian.Woerterbuch\Obsidian.Woerterbuch.Dictionary.csproj" />
+  </ItemGroup>
+
 </Project>
