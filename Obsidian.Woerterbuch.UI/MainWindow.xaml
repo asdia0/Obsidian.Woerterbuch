@@ -13,7 +13,7 @@
         </Menu>
         <ListView SizeChanged="ListView_SizeChanged" Name="termList" Margin="0,18,0,-18">
             <ListView.View>
-                <GridView>
+                <GridView AllowsColumnReorder="False">
                     <GridViewColumn Header="Term" x:Name="TermCol" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Class" Width="200" x:Name="ClassCol" DisplayMemberBinding="{Binding Type}"/>
                 </GridView>
