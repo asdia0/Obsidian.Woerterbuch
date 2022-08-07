@@ -18,10 +18,7 @@
             if (File.Exists(Path))
             {
                 Dictionary = JsonConvert.DeserializeObject<List<Term>>(File.ReadAllText(Path));
-                if (Dictionary == null)
-                {
-                    Dictionary = new();
-                }
+                Dictionary ??= new();
             }
             else
             {
