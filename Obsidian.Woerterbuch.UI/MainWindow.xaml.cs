@@ -47,5 +47,10 @@
             }
             _GridView.Columns[0].Width = _ActualWidth;
         }
+
+        private void NewTerm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
