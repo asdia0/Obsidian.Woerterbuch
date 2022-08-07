@@ -63,5 +63,11 @@
                 new EditTermWindow(item).Show();
             }
         }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            new AboutWindow().Show();
+            return;
+        }
     }
 }

@@ -9,7 +9,7 @@
     <Grid>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_New Term" Click="NewTerm_Click"/>
-            <MenuItem Header="_About"/>
+            <MenuItem Header="_About" Click="About_Click"/>
         </Menu>
         <ListView SizeChanged="ListView_SizeChanged" Name="termList" Margin="0,18,0,-18">
             <ListView.View>
