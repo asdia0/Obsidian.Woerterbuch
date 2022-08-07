@@ -53,5 +53,15 @@
                 this.Title = "Adding new term";
             }
         }
+
+        private void SaveTerm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteTerm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

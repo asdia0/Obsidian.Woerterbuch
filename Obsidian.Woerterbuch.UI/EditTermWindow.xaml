@@ -8,8 +8,8 @@
         Title="" Height="450" Width="800">
     <Grid>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Save Term"/>
-            <MenuItem Header="_Delete Term"/>
+            <MenuItem Header="_Save Term" Click="SaveTerm_Click"/>
+            <MenuItem Header="_Delete Term" Click="DeleteTerm_Click"/>
         </Menu>
     </Grid>
 </Window>
