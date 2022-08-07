@@ -16,9 +16,9 @@
     using System.Windows.Shapes;
 
     /// <summary>
-    /// Interaction logic for Term.xaml
+    /// Interaction logic for TermWindow.xaml
     /// </summary>
-    public partial class EditTermWindow : Window
+    public partial class TermWindow : Window
     {
         /// <summary>
         /// The term to edit. If `null`, add new term.
@@ -39,7 +39,7 @@
                 return true;
             }
         }
-        public EditTermWindow(Term? term)
+        public TermWindow(Term? term)
         {
             this.Term = term;
             InitializeComponent();

@@ -47,7 +47,7 @@
 
         private void NewTerm_Click(object sender, RoutedEventArgs e)
         {
-            new EditTermWindow(null).Show();
+            new TermWindow(null).Show();
         }
 
         private void ListViewItem_Click(object sender, MouseButtonEventArgs e)
@@ -56,7 +56,7 @@
 
             if (item != null)
             {
-                new EditTermWindow(item).Show();
+                new TermWindow(item).Show();
             }
         }
 
