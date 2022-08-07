@@ -53,5 +53,15 @@
             new EditTermWindow(null).Show();
             return;
         }
+
+        private void ListViewItem_Click(object sender, MouseButtonEventArgs e)
+        {
+            Term item = (Term)termList.SelectedItem;
+
+            if (item != null)
+            {
+                new EditTermWindow(item).Show();
+            }
+        }
     }
 }

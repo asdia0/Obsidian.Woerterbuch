@@ -18,6 +18,11 @@
                     <GridViewColumn Header="Class" Width="200" x:Name="ClassCol" DisplayMemberBinding="{Binding Type}"/>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonUp" Handler="ListViewItem_Click" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </Window>
