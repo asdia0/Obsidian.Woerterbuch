@@ -48,7 +48,6 @@
         private void NewTerm_Click(object sender, RoutedEventArgs e)
         {
             new EditTermWindow(null).Show();
-            return;
         }
 
         private void ListViewItem_Click(object sender, MouseButtonEventArgs e)
@@ -64,7 +63,6 @@
         private void About_Click(object sender, RoutedEventArgs e)
         {
             new AboutWindow().Show();
-            return;
         }
     }
 }
