@@ -22,18 +22,15 @@
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<Term> Dictionary { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
 
             Utility.InitializeDictionary();
-            this.Dictionary = new ObservableCollection<Term>(Utility.Dictionary);
+            Global.Dictionary = new ObservableCollection<Term>(Utility.Dictionary);
+            this.termList.ItemsSource = Global.Dictionary;
 
-            this.termList.ItemsSource = this.Dictionary;
-
-            this.Dictionary.Add(new("Tier", TermType.Noun));
+            Global.Dictionary.Add(new("Tier", TermType.Noun));
         }
 
         private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)

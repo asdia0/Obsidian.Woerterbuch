@@ -1,6 +1,11 @@
 ﻿namespace Obsidian.Woerterbuch.UI
 {
-    class Global
+    using Dictionary;
+    using System.Collections.ObjectModel;
+
+    public static class Global
     {
+        public static ObservableCollection<Term> Dictionary { get; set; }
+
     }
 }
