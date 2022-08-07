@@ -20,7 +20,7 @@
             </ListView.View>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <EventSetter Event="PreviewMouseLeftButtonUp" Handler="ListViewItem_Click" />
+                    <EventSetter Event="PreviewMouseDoubleClick" Handler="ListViewItem_Click" />
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
