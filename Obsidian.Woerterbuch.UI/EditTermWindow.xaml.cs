@@ -25,11 +25,33 @@
         /// </summary>
         public Term? Term { get; init; }
 
+        /// <summary>
+        /// Returns `true` if in editing mode (not adding a term).
+        /// </summary>
+        public bool IsEdit
+        {
+            get
+            {
+                if (Term == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
         public EditTermWindow(Term? term)
         {
             this.Term = term;
             InitializeComponent();
-            this.Title += $": {this.Term.Name} ({this.Term.Type})";
+
+            if (IsEdit)
+            {
+                this.Title = $"Editing {this.Term.Name} ({this.Term.Type})";
+            }
+            else
+            {
+                this.Title = "Adding new term";
+            }
         }
     }
 }
