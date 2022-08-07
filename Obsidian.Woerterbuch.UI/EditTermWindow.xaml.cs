@@ -61,7 +61,14 @@
 
         private void DeleteTerm_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure?", "Delete Confirmation", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                Global.Dictionary.Remove(this.Term);
+                Global.SaveDictionary();
+            }
 
+            this.Close();
         }
     }
 }
