@@ -75,4 +75,44 @@
             this.Close();
         }
     }
+
+    public class LabelValueGrid : Grid
+    {
+        public LabelValueGrid()
+            : base()
+        {
+            ColumnDefinitions.Add(new ColumnDefinition());
+            ColumnDefinitions.Add(new ColumnDefinition());
+            ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Auto);
+            ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+        }
+
+        protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
+        {
+            base.OnVisualChildrenChanged(visualAdded, visualRemoved);
+
+            int curRow = -1;
+            int curCol = 1;
+
+            RowDefinitions.Clear();
+
+            if (Children != null)
+                foreach (UIElement curChild in Children)
+                {
+                    if (curCol == 0)
+                        curCol = 1;
+                    else
+                    {
+                        curCol = 0;
+                        curRow++;
+                        RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
+                    }
+
+                    SetRow(curChild, curRow);
+                    SetColumn(curChild, curCol);
+                }
+
+            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Star) });
+        }
+    }
 }
