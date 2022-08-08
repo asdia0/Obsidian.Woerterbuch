@@ -46,13 +46,46 @@
         {
             this.Term = term;
             InitializeComponent();
-            this.UpdateTitle();
 
             this.Type_Value.ItemsSource = Enum.GetValues(typeof(TermType));
             this.Gender_Value.ItemsSource = Enum.GetValues(typeof(Gender));
 
             this.Definitions = new();
             this.Definitions_Value.ItemsSource = this.Definitions;
+
+            this.UpdateTitle();
+            this.UpdateVisibility();
+        }
+
+        private void UpdateVisibility()
+        {
+            if (IsEdit)
+            {
+                this.Noun_Group.Visibility = Visibility.Collapsed;
+                this.VerbPrep_Group.Visibility = Visibility.Collapsed;
+                this.VerbPrep_Group.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TermType type = (TermType)Enum.Parse(typeof(TermType), this.Type_Value.SelectedValue.ToString());
+                switch (type)
+                {
+                    case TermType.Noun:
+                        this.VerbPrep_Group.Visibility = Visibility.Collapsed;
+                        this.Verb_Group.Visibility = Visibility.Collapsed;
+                        break;
+                    case TermType.Verb:
+                        this.VerbPrep_Group.Visibility = Visibility.Collapsed;
+                        break;
+                    case TermType.Preposition:
+                        this.Noun_Group.Visibility = Visibility.Collapsed;
+                        this.Verb_Group.Visibility = Visibility.Collapsed;
+                        break;
+                    default:
+                        break;
+
+                }
+            }
         }
 
         private void UpdateTitle()
