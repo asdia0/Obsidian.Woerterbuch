@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Height="450" Width="800">
     <Grid>
-        <Menu DockPanel.Dock="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu DockPanel.Dock="Top" Grid.Row="0">
             <MenuItem Header="_Save Term" Click="SaveTerm_Click"/>
             <MenuItem Header="_Delete Term" Click="DeleteTerm_Click"/>
         </Menu>
