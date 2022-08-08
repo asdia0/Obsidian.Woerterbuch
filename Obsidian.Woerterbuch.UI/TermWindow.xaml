@@ -15,5 +15,13 @@
             <MenuItem Header="_Save Term" Click="SaveTerm_Click"/>
             <MenuItem Header="_Delete Term" Click="DeleteTerm_Click"/>
         </Menu>
+        <ScrollViewer Grid.Row="1">
+            <local:LabelValueGrid>
+                <TextBlock Text="Label1"/>
+                <TextBox Name="value1"/>
+                <TextBlock Text="Label2"/>
+                <TextBox Name="value2"/>
+            </local:LabelValueGrid>
+        </ScrollViewer>
     </Grid>
 </Window>
