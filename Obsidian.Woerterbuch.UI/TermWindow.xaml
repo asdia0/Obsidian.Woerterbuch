@@ -20,9 +20,9 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Term"/>
                 <TextBox Name="Term_Value"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Word Class"/>
-                <ComboBox Name="Type_Value"/>
+                <ComboBox Name="Type_Value" SelectionChanged="Type_Value_SelectionChanged"/>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Definitions"/>
-                <Button x:Name="Definitions_Add" Content="Add Definition"/>
+                <Button x:Name="Definitions_Add" Content="Add Definition" Click="Definitions_Add_Click"/>
                 <Label Content=""/>
                 <ListBox x:Name="Definitions_Value" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <ListBox.ItemTemplate>
@@ -32,7 +32,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Synonyms"/>
-                <Button x:Name="Synonyms_Add" Content="Add Synonyms"/>
+                <Button x:Name="Synonyms_Add" Content="Add Synonyms" Click="Synonyms_Add_Click"/>
                 <Label Content=""/>
                 <ListBox x:Name="Synonyms_Value" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <ListBox.ItemTemplate>

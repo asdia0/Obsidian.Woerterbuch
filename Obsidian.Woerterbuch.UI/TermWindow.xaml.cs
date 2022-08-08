@@ -83,6 +83,21 @@
 
             this.Close();
         }
+
+        private void Type_Value_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Definitions_Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Synonyms_Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     public class LabelValueGrid : Grid
