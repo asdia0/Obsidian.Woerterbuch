@@ -46,7 +46,7 @@
         {
             this.Term = term;
             InitializeComponent();
-            this.UpdateWindowInfo();
+            this.UpdateTitle();
 
             this.Type_Value.ItemsSource = Enum.GetValues(typeof(TermType));
             this.Gender_Value.ItemsSource = Enum.GetValues(typeof(Gender));
@@ -55,7 +55,7 @@
             this.Definitions_Value.ItemsSource = this.Definitions;
         }
 
-        private void UpdateWindowInfo()
+        private void UpdateTitle()
         {
             if (IsEdit)
             {
