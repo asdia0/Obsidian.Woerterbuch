@@ -15,12 +15,135 @@
             <MenuItem Header="_Save Term" Click="SaveTerm_Click"/>
             <MenuItem Header="_Delete Term" Click="DeleteTerm_Click"/>
         </Menu>
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
             <local:LabelValueGrid>
-                <TextBlock Text="Label1"/>
-                <TextBox Name="value1"/>
-                <TextBlock Text="Label2"/>
-                <TextBox Name="value2"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Term"/>
+                <TextBox Name="Term_Value"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Word Class"/>
+                <ComboBox Name="Type_Value"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Definitions"/>
+                <Button x:Name="Definitions_Add" Content="Add Definition"/>
+                <Label Content=""/>
+                <ListBox x:Name="Definitions_Value" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBox/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Synonyms"/>
+                <Button x:Name="Synonyms_Add" Content="Add Synonyms"/>
+                <Label Content=""/>
+                <ListBox x:Name="Synonyms_Value" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBox/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Gender"/>
+                <ComboBox Name="Gender_Value"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Plural"/>
+                <TextBox Name="Plural_Value"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Is Regular"/>
+                <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Name="Regular_Value"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Is Akkustiv"/>
+                <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Name="Akk_Value"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Is Dativ"/>
+                <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Name="Dat_Value"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Conjugations"/>
+                <local:LabelValueGrid>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Präsens"/>
+                    <local:LabelValueGrid>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
+                        <TextBox Name="Praesens_ich_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
+                        <TextBox Name="Praesens_du_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
+                        <TextBox Name="Praesens_er_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="wir"/>
+                        <TextBox Name="Praesens_wir_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ihr"/>
+                        <TextBox Name="Praesens_ihr_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="sie/Sie"/>
+                        <TextBox Name="Praesens_Sie_Value"/>
+                    </local:LabelValueGrid>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Perfekt"/>
+                    <local:LabelValueGrid>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
+                        <TextBox Name="Perfekt_ich_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
+                        <TextBox Name="Perfekt_du_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
+                        <TextBox Name="Perfekt_er_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="wir"/>
+                        <TextBox Name="Perfekt_wir_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ihr"/>
+                        <TextBox Name="Perfekt_ihr_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="sie/Sie"/>
+                        <TextBox Name="Perfekt_Sie_Value"/>
+                    </local:LabelValueGrid>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Präteritum"/>
+                    <local:LabelValueGrid>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
+                        <TextBox Name="Präteritum_ich_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
+                        <TextBox Name="Präteritum_du_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
+                        <TextBox Name="Präteritum_er_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="wir"/>
+                        <TextBox Name="Präteritum_wir_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ihr"/>
+                        <TextBox Name="Präteritum_ihr_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="sie/Sie"/>
+                        <TextBox Name="Präteritum_Sie_Value"/>
+                    </local:LabelValueGrid>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Plusquamperfekt"/>
+                    <local:LabelValueGrid>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
+                        <TextBox Name="Plusquamperfekt_Ich_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
+                        <TextBox Name="Plusquamperfekt_du_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
+                        <TextBox Name="Plusquamperfekt_er_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="wir"/>
+                        <TextBox Name="Plusquamperfekt_wir_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ihr"/>
+                        <TextBox Name="Plusquamperfekt_ihr_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="sie/Sie"/>
+                        <TextBox Name="Plusquamperfekt_Sie_Value"/>
+                    </local:LabelValueGrid>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Futur 1"/>
+                    <local:LabelValueGrid>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
+                        <TextBox Name="Futur1_Ich_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
+                        <TextBox Name="Futur1_du_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
+                        <TextBox Name="Futur1_er_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="wir"/>
+                        <TextBox Name="Futur1_wir_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ihr"/>
+                        <TextBox Name="Futur1_ihr_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="sie/Sie"/>
+                        <TextBox Name="Futur1_Sie_Value"/>
+                    </local:LabelValueGrid>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Futur 2"/>
+                    <local:LabelValueGrid>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
+                        <TextBox Name="Futur2_Ich_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
+                        <TextBox Name="Futur2_du_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
+                        <TextBox Name="Futur2_er_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="wir"/>
+                        <TextBox Name="Futur2_wir_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ihr"/>
+                        <TextBox Name="Futur2_ihr_Value"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="sie/Sie"/>
+                        <TextBox Name="Futur2_Sie_Value"/>
+                    </local:LabelValueGrid>
+                </local:LabelValueGrid>
             </local:LabelValueGrid>
         </ScrollViewer>
     </Grid>

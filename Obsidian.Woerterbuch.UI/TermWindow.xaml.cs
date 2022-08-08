@@ -3,6 +3,7 @@
     using Dictionary;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -25,6 +26,8 @@
         /// </summary>
         public Term? Term { get; init; }
 
+        public ObservableCollection<string> Definitions { get; set; }
+
         /// <summary>
         /// Returns `true` if in editing mode (not adding a term).
         /// </summary>
@@ -44,6 +47,12 @@
             this.Term = term;
             InitializeComponent();
             this.UpdateWindowInfo();
+
+            this.Type_Value.ItemsSource = Enum.GetValues(typeof(TermType));
+            this.Gender_Value.ItemsSource = Enum.GetValues(typeof(Gender));
+
+            this.Definitions = new();
+            this.Definitions_Value.ItemsSource = this.Definitions;
         }
 
         private void UpdateWindowInfo()
@@ -83,8 +92,10 @@
         {
             ColumnDefinitions.Add(new ColumnDefinition());
             ColumnDefinitions.Add(new ColumnDefinition());
-            ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Auto);
-            ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+            ColumnDefinitions.Add(new ColumnDefinition());
+            ColumnDefinitions[0].Width = new GridLength(3, GridUnitType.Star);
+            ColumnDefinitions[1].Width = new GridLength(15, GridUnitType.Star);
+            ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
         }
 
         protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
@@ -105,14 +116,15 @@
                     {
                         curCol = 0;
                         curRow++;
-                        RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
+
+                        RowDefinitions.Add(new RowDefinition() { Height = new GridLength(2, GridUnitType.Auto) });
                     }
 
                     SetRow(curChild, curRow);
                     SetColumn(curChild, curCol);
                 }
 
-            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Star) });
+            RowDefinitions.Add(new RowDefinition() { Height = new GridLength(2, GridUnitType.Auto) });
         }
     }
 }
