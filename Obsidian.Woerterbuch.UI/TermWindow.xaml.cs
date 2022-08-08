@@ -28,6 +28,8 @@
 
         public ObservableCollection<string> Definitions { get; set; }
 
+        public static RoutedCommand SaveCommand = new();
+
         /// <summary>
         /// Returns `true` if in editing mode (not adding a term).
         /// </summary>
@@ -55,6 +57,8 @@
 
             this.UpdateTitle();
             this.UpdateVisibility();
+            
+            SaveCommand.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
         }
 
         private void UpdateVisibility()
@@ -130,6 +134,11 @@
         private void Synonyms_Add_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SaveCommandExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.SaveTerm_Click(sender, e);
         }
     }
 
