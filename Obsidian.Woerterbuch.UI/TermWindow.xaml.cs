@@ -43,7 +43,11 @@
         {
             this.Term = term;
             InitializeComponent();
+            this.UpdateWindowInfo();
+        }
 
+        private void UpdateWindowInfo()
+        {
             if (IsEdit)
             {
                 this.Title = $"Editing {this.Term.Name} ({this.Term.Type})";
