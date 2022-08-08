@@ -7,11 +7,15 @@
         mc:Ignorable="d"
         Title="Dictionary" Height="400" Width="850">
     <Grid>
-        <Menu DockPanel.Dock="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu DockPanel.Dock="Top" Grid.Row="0">
             <MenuItem Header="_New Term" Click="NewTerm_Click"/>
             <MenuItem Header="_About" Click="About_Click"/>
         </Menu>
-        <ListView SizeChanged="ListView_SizeChanged" Name="termList" Margin="0,18,0,-18">
+        <ListView SizeChanged="ListView_SizeChanged" Name="termList" Grid.Row="1">
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridViewColumn Header="Term" x:Name="TermCol" DisplayMemberBinding="{Binding Name}"/>
