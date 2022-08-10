@@ -19,7 +19,7 @@
         /// 5. sie/Sie
         /// </summary>
         [JsonProperty]
-        public Dictionary<Tense, string[]> Conjugations { get; set; }
+        public Dictionary<Tense, string?[]> Conjugations { get; set; }
 
         public Conjugation()
         {
