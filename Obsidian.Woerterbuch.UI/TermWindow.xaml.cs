@@ -58,7 +58,7 @@
             this.Definitions_Value.ItemsSource = this.Definitions;
 
             this.Synonyms = new();
-            this.Synonyms_Value.ItemsSource = this.Synonyms_Value;
+            this.Synonyms_Value.ItemsSource = this.Synonyms;
 
             this.UpdateTitle();
             this.UpdateVisibility();
