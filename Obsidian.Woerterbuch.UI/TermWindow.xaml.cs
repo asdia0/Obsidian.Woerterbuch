@@ -26,9 +26,9 @@
         /// </summary>
         public Term? Term { get; init; }
 
-        public ObservableCollection<string> Definitions { get; set; }
+        public ObservableCollection<TotallyNotAString> Definitions { get; set; }
 
-        public ObservableCollection<string> Synonyms { get; set; }
+        public ObservableCollection<TotallyNotAString> Synonyms { get; set; }
 
         public static RoutedCommand SaveCommand = new();
 
@@ -50,14 +50,13 @@
         {
             this.Term = term;
             InitializeComponent();
+            this.Definitions = new(this.Term.Definitions.Select(i => new TotallyNotAString(i)));
+            this.Synonyms = new(this.Term.Synonyms.Select(i => new TotallyNotAString(i)));
 
             this.Type_Value.ItemsSource = Enum.GetValues(typeof(TermType));
             this.Gender_Value.ItemsSource = Enum.GetValues(typeof(Gender));
 
-            this.Definitions = new();
             this.Definitions_Value.ItemsSource = this.Definitions;
-
-            this.Synonyms = new();
             this.Synonyms_Value.ItemsSource = this.Synonyms;
 
             this.Term_Value.Text = this.Term.Name;
@@ -120,7 +119,130 @@
 
         private void SaveTerm_Click(object sender, RoutedEventArgs e)
         {
+            this.Term.Name = this.Term_Value.Text;
+            this.Term.Type = (TermType)Enum.Parse(typeof(TermType), this.Type_Value.SelectedItem.ToString());
+            this.Term.Definitions = this.Definitions.Where(i => i.NotAString != string.Empty).Select(i => i.NotAString).ToList();
+            this.Term.Synonyms = this.Synonyms.Where(i => i.NotAString != string.Empty).Select(i => i.NotAString).ToList();
 
+            // Edit applicable properties and nullify all others.
+            switch (this.Term.Type)
+            {
+                case TermType.Noun:
+                    this.Term.Gender = (Gender)Enum.Parse(typeof(Gender), this.Gender_Value.SelectedItem.ToString());
+                    this.Term.Plural = this.Plural_Value.Text;
+                    this.Term.Conjugations = null;
+                    this.Term.IsRegular = null;
+                    this.Term.IsAkkusativ = null;
+                    this.Term.IsDativ = null;
+                    break;
+                case TermType.Verb:
+                    this.Term.Gender = null;
+                    this.Term.Plural = null;
+                    #region Parse conjugations
+                    string[] present = new string[6]
+                    {
+                        this.Praesens_ich_Value.Text,
+                        this.Praesens_du_Value.Text,
+                        this.Praesens_er_Value.Text,
+                        this.Praesens_wir_Value.Text,
+                        this.Praesens_ihr_Value.Text,
+                        this.Praesens_Sie_Value.Text,
+                    };
+
+                    string[] perfect = new string[6]
+                    {
+                        this.Perfekt_ich_Value.Text,
+                        this.Perfekt_du_Value.Text,
+                        this.Perfekt_er_Value.Text,
+                        this.Perfekt_wir_Value.Text,
+                        this.Perfekt_ihr_Value.Text,
+                        this.Perfekt_Sie_Value.Text,
+                    };
+
+                    string[] simplePast = new string[6]
+                    {
+                        this.Präteritum_ich_Value.Text,
+                        this.Präteritum_du_Value.Text,
+                        this.Präteritum_er_Value.Text,
+                        this.Präteritum_wir_Value.Text,
+                        this.Präteritum_ihr_Value.Text,
+                        this.Präteritum_Sie_Value.Text,
+                    };
+
+                    string[] pastPerfect = new string[6]
+                    {
+                        this.Plusquamperfekt_ich_Value.Text,
+                        this.Plusquamperfekt_du_Value.Text,
+                        this.Plusquamperfekt_er_Value.Text,
+                        this.Plusquamperfekt_wir_Value.Text,
+                        this.Plusquamperfekt_ihr_Value.Text,
+                        this.Plusquamperfekt_Sie_Value.Text,
+                    };
+
+                    string[] future1 = new string[6]
+                    {
+                        this.Futur1_ich_Value.Text,
+                        this.Futur1_du_Value.Text,
+                        this.Futur1_er_Value.Text,
+                        this.Futur1_wir_Value.Text,
+                        this.Futur1_ihr_Value.Text,
+                        this.Futur1_Sie_Value.Text,
+                    };
+
+                    string[] future2 = new string[6]
+                    {
+                        this.Futur2_ich_Value.Text,
+                        this.Futur2_du_Value.Text,
+                        this.Futur2_er_Value.Text,
+                        this.Futur2_wir_Value.Text,
+                        this.Futur2_ihr_Value.Text,
+                        this.Futur2_Sie_Value.Text,
+                    };
+
+                    this.Term.Conjugations = new();
+                    this.Term.Conjugations.Conjugations[Tense.Present] = present;
+                    this.Term.Conjugations.Conjugations[Tense.Perfect] = perfect;
+                    this.Term.Conjugations.Conjugations[Tense.SimplePast] = simplePast;
+                    this.Term.Conjugations.Conjugations[Tense.PastPerfect] = pastPerfect;
+                    this.Term.Conjugations.Conjugations[Tense.Future1] = future1;
+                    this.Term.Conjugations.Conjugations[Tense.Future2] = future2;
+
+                    foreach (string[] arr in this.Term.Conjugations.Conjugations.Values)
+                    {
+                        for (int i = 0; i <= 5; i++)
+                        {
+                            if (arr[i] == string.Empty)
+                            {
+                                arr[i] = null;
+                            }
+                        }
+                    }
+                    #endregion
+                    this.Term.IsRegular = this.Regular_Value.IsChecked;
+                    this.Term.IsAkkusativ = this.Akk_Value.IsChecked;
+                    this.Term.IsDativ = this.Dat_Value.IsChecked;
+                    break;
+                case TermType.Preposition:
+                    this.Term.Gender = null;
+                    this.Term.Plural = null;
+                    this.Term.Conjugations = null;
+                    this.Term.IsRegular = null;
+                    this.Term.IsAkkusativ = this.Akk_Value.IsChecked;
+                    this.Term.IsDativ = this.Dat_Value.IsChecked;
+                    break;
+                default:
+                    this.Term.Gender = null;
+                    this.Term.Plural = null;
+                    this.Term.Conjugations = null;
+                    this.Term.IsRegular = null;
+                    this.Term.IsAkkusativ = null;
+                    this.Term.IsDativ = null;
+                    break;
+            }
+
+            Global.SaveDictionary();
+            this.UpdateTitle();
+            this.UpdateVisibility();
         }
 
         private void DeleteTerm_Click(object sender, RoutedEventArgs e)
@@ -142,12 +264,12 @@
 
         private void Definitions_Add_Click(object sender, RoutedEventArgs e)
         {
-            this.Definitions.Add(string.Empty);
+            this.Definitions.Add(new(string.Empty));
         }
 
         private void Synonyms_Add_Click(object sender, RoutedEventArgs e)
         {
-            this.Synonyms.Add(string.Empty);
+            this.Synonyms.Add(new(string.Empty));
         }
 
         private void SaveCommandExecuted(object sender, ExecutedRoutedEventArgs e)

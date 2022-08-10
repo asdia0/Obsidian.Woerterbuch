@@ -39,7 +39,7 @@
                         <ListBox x:Name="Definitions_Value" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox/>
+                                    <TextBox Text="{Binding Path=NotAString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
