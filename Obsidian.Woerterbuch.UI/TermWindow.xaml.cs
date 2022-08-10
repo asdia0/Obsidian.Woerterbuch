@@ -133,12 +133,12 @@
 
         private void Definitions_Add_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Definitions.Add(string.Empty);
         }
 
         private void Synonyms_Add_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Synonyms.Add(string.Empty);
         }
 
         private void SaveCommandExecuted(object sender, ExecutedRoutedEventArgs e)
