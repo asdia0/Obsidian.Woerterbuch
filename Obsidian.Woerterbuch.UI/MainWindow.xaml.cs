@@ -40,7 +40,7 @@
             var _ActualWidth = _ListView.ActualWidth - SystemParameters.VerticalScrollBarWidth;
             for (Int32 i = 1; i < _GridView.Columns.Count; i++)
             {
-                _ActualWidth = _ActualWidth - _GridView.Columns[i].ActualWidth;
+                _ActualWidth -= _GridView.Columns[i].ActualWidth;
             }
             _GridView.Columns[0].Width = _ActualWidth;
         }
