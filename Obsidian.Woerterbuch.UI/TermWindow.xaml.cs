@@ -28,6 +28,8 @@
 
         public ObservableCollection<string> Definitions { get; set; }
 
+        public ObservableCollection<string> Synonyms { get; set; }
+
         public static RoutedCommand SaveCommand = new();
 
         /// <summary>
@@ -54,6 +56,9 @@
 
             this.Definitions = new();
             this.Definitions_Value.ItemsSource = this.Definitions;
+
+            this.Synonyms = new();
+            this.Synonyms_Value.ItemsSource = this.Synonyms_Value;
 
             this.UpdateTitle();
             this.UpdateVisibility();
