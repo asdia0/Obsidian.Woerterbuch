@@ -1,5 +1,7 @@
 ﻿namespace Obsidian.Woerterbuch.Dictionary
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Newtonsoft.Json;
 
     /// <summary>
@@ -8,29 +10,25 @@
     public class Conjugation
     {
         /// <summary>
-        /// The tense the verb is being conjugated to.
+        /// The conjugated verb in all tenses. Each array contains 6 elements, which are ordered as follows:
+        /// 0. ich
+        /// 1. fu
+        /// 2. er/sie/es
+        /// 3. wir
+        /// 4. ihr
+        /// 5. sie/Sie
         /// </summary>
         [JsonProperty]
-        public Tense Tense { get; set; }
+        Dictionary<Tense, string[]> Conjugations { get; set; }
 
-        /// <summary>
-        /// The conjugated verb. Contains 7 elements, which are ordered as follows:
-        /// 0. infinitive
-        /// 1. ich
-        /// 2. fu
-        /// 3. er/sie/es
-        /// 4. wir
-        /// 5. ihr
-        /// 6. sie/Sie
-        /// </summary>
-        [JsonProperty]
-        public string[] Conjugations { get; set; }
-
-        public Conjugation(string infinitive, Tense tense)
+        public Conjugation()
         {
-            this.Tense = tense;
-            this.Conjugations = new string[7];
-            this.Conjugations[0] = infinitive;
+            this.Conjugations.Add(Tense.Present, new string[6]);
+            this.Conjugations.Add(Tense.Perfect, new string[6]);
+            this.Conjugations.Add(Tense.SimplePast, new string[6]);
+            this.Conjugations.Add(Tense.PastPerfect, new string[6]);
+            this.Conjugations.Add(Tense.Future1, new string[6]);
+            this.Conjugations.Add(Tense.Future2, new string[6]);
         }
 
         public override string ToString()

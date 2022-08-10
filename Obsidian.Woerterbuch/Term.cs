@@ -48,7 +48,7 @@
         /// The conjugated forms of the term in different tenses. Only applies to verbs.
         /// </summary>
         [JsonProperty]
-        public List<Conjugation>? Conjugations { get; set; }
+        public Conjugation? Conjugations { get; set; }
 
         /// <summary>
         /// A value indicating whether the term is a regular verb. Only applies to verbs.
