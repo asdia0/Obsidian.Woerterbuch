@@ -29,8 +29,6 @@
             Utility.InitializeDictionary();
             Global.Dictionary = new ObservableCollection<Term>(Utility.Dictionary);
             this.termList.ItemsSource = Global.Dictionary;
-
-            Global.Dictionary.Add(new("Tier", TermType.Noun));
         }
 
         private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
