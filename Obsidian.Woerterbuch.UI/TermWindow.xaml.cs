@@ -60,6 +60,9 @@
             this.Synonyms = new();
             this.Synonyms_Value.ItemsSource = this.Synonyms;
 
+            this.Term_Value.Text = this.Term.Name;
+            this.Type_Value.SelectedItem = this.Term.Type;
+
             this.UpdateTitle();
             this.UpdateVisibility();
             
@@ -70,23 +73,23 @@
         {
             if (IsEdit)
             {
-                this.Noun_Group.Visibility = Visibility.Collapsed;
-                this.VerbPrep_Group.Visibility = Visibility.Collapsed;
-                this.VerbPrep_Group.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
                 TermType type = (TermType)Enum.Parse(typeof(TermType), this.Type_Value.SelectedValue.ToString());
                 switch (type)
                 {
                     case TermType.Noun:
+                        this.Noun_Group.Visibility = Visibility.Visible;
                         this.VerbPrep_Group.Visibility = Visibility.Collapsed;
                         this.Verb_Group.Visibility = Visibility.Collapsed;
+
+                        this.Gender_Value.SelectedItem = this.Term.Gender;
                         break;
                     case TermType.Verb:
-                        this.VerbPrep_Group.Visibility = Visibility.Collapsed;
+                        this.Verb_Group.Visibility = Visibility.Visible;
+                        this.VerbPrep_Group.Visibility = Visibility.Visible;
+                        this.Noun_Group.Visibility = Visibility.Collapsed;
                         break;
                     case TermType.Preposition:
+                        this.VerbPrep_Group.Visibility = Visibility.Visible;
                         this.Noun_Group.Visibility = Visibility.Collapsed;
                         this.Verb_Group.Visibility = Visibility.Collapsed;
                         break;
@@ -94,6 +97,12 @@
                         break;
 
                 }
+            }
+            else
+            {
+                this.Noun_Group.Visibility = Visibility.Collapsed;
+                this.VerbPrep_Group.Visibility = Visibility.Collapsed;
+                this.Verb_Group.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -128,7 +137,7 @@
 
         private void Type_Value_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            this.UpdateVisibility();
         }
 
         private void Definitions_Add_Click(object sender, RoutedEventArgs e)
