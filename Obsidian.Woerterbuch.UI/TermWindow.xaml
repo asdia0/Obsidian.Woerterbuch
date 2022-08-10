@@ -125,7 +125,7 @@
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Plusquamperfekt"/>
                             <local:LabelValueGrid>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
-                                <TextBox Name="Plusquamperfekt_Ich_Value"/>
+                                <TextBox Name="Plusquamperfekt_ich_Value"/>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
                                 <TextBox Name="Plusquamperfekt_du_Value"/>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
@@ -140,7 +140,7 @@
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Futur 1"/>
                             <local:LabelValueGrid>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
-                                <TextBox Name="Futur1_Ich_Value"/>
+                                <TextBox Name="Futur1_ich_Value"/>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
                                 <TextBox Name="Futur1_du_Value"/>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
@@ -155,7 +155,7 @@
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Futur 2"/>
                             <local:LabelValueGrid>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="ich"/>
-                                <TextBox Name="Futur2_Ich_Value"/>
+                                <TextBox Name="Futur2_ich_Value"/>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="du"/>
                                 <TextBox Name="Futur2_du_Value"/>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="er/sie/es"/>
