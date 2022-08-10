@@ -81,6 +81,7 @@
                         this.Verb_Group.Visibility = Visibility.Collapsed;
 
                         this.Gender_Value.SelectedItem = this.Term.Gender;
+                        this.Plural_Value.Text = this.Term.Plural;
                         break;
                     case TermType.Verb:
                         this.Verb_Group.Visibility = Visibility.Visible;
