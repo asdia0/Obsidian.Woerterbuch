@@ -243,6 +243,8 @@
             Global.SaveDictionary();
             this.UpdateTitle();
             this.UpdateVisibility();
+            
+            MessageBox.Show($"{this.Term.Name} ({this.Term.Type}) saved successfully.", "Saved!");
         }
 
         private void DeleteTerm_Click(object sender, RoutedEventArgs e)
