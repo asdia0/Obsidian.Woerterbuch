@@ -87,11 +87,17 @@
                         this.Verb_Group.Visibility = Visibility.Visible;
                         this.VerbPrep_Group.Visibility = Visibility.Visible;
                         this.Noun_Group.Visibility = Visibility.Collapsed;
+
+                        this.Regular_Value.IsChecked = this.Term.IsRegular;
+                        // TODO: Show conjugations
                         break;
                     case TermType.Preposition:
                         this.VerbPrep_Group.Visibility = Visibility.Visible;
                         this.Noun_Group.Visibility = Visibility.Collapsed;
                         this.Verb_Group.Visibility = Visibility.Collapsed;
+
+                        this.Akk_Value.IsChecked = this.Term.IsAkkusativ;
+                        this.Dat_Value.IsChecked = this.Term.IsDativ;
                         break;
                     default:
                         break;
